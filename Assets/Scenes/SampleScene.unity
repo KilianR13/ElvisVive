@@ -509,6 +509,7 @@ GameObject:
   - component: {fileID: 720656622}
   - component: {fileID: 720656621}
   - component: {fileID: 720656626}
+  - component: {fileID: 720656627}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -660,6 +661,24 @@ MonoBehaviour:
   jumpHeight: 3
   gravity: -9.81
   moveInput: {x: 0, y: 0}
+--- !u!114 &720656627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720656620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc995543ed9d764b8b0dd85e2e16d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLook
+  cameraTransform: {fileID: 330585545}
+  mouseSensitivity: 120
+  minPitch: -40
+  maxPitch: 40
+  playerInput: {fileID: 720656621}
+  delay: 0
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
