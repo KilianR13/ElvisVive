@@ -28,7 +28,6 @@ public class PlayerLook : MonoBehaviour
         {
             playerInput.DeactivateInput();
         }
-        // Ocultar();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -72,11 +71,13 @@ public class PlayerLook : MonoBehaviour
         // Lee el ratón
         float mouseX = lookInput.x * mouseSensitivity * Time.deltaTime;
         float mouseY = lookInput.y * mouseSensitivity * Time.deltaTime;
+
         // Gira el personaje en el eje X
         transform.Rotate(0f, mouseX, 0f);
 
         // Controla si la cámara mira hacia arriba o hacia abajo
         cameraPitch -= mouseY;
+        
         // Limita lo lejos que se puede girar la cámara hacia arriba o hacia abajo.
         cameraPitch = Mathf.Clamp(cameraPitch, minPitch, maxPitch);
         cameraTransform.transform.localRotation = Quaternion.Euler(cameraPitch, 0f, 0f);
