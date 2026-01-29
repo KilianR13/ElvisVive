@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SocialPlatforms;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -92,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 speed = controller.velocity;
         Vector3 localMovement = controller.transform.InverseTransformDirection(speed);
+        // Debug.Log($"Speed: {speed}, localMovement: {localMovement}");
 
         animator.SetFloat("X", localMovement.x);
         animator.SetFloat("Y", localMovement.z);
