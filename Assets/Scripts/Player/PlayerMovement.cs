@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float fallMultiplier = 1.5f;
 
+    private bool Salto;
     public bool enSuelo;
 
     [Header("Jump Buffer")]
@@ -44,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        OldInput();
         HandleMovement();
         HandleGravityAndJump();
         Sprint();
@@ -54,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log($"Speed: {speed}, localMovement: {localMovement}");
 
         animator.SetFloat("X", localMovement.x);
-        animator.SetFloat("Y", localMovement.y);
+        animator.SetFloat("Y", velocity.y);
         animator.SetFloat("Z", localMovement.z);
 
         if(Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
@@ -62,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            animator.SetBool("SueloCerca", false);
+            animator.SetBool("EnSuelo", false);
         }
 
         animator.SetBool("EnSuelo", controller.isGrounded);
@@ -81,6 +83,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OldInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Salto = true;
+        }
+    }
+
 
     private void HandleMovement()
     {
@@ -92,15 +102,16 @@ public class PlayerMovement : MonoBehaviour
         velocity.z = move.z * moveSpeed;
     }
 
-    private void OldInput()
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (hit.gameObject.CompareTag("Suelo"))
         {
-            
+            enSuelo = true;
         }
     }
 
-    private void HandleGravityAndJump()
+
+    /*private void HandleGravityAndJump()
     {
         bool grounded = controller.isGrounded;
 
@@ -110,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (grounded && jumpBufferCounter > 0f)
+
         {
             // velocity.y = 0f;
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -128,8 +140,40 @@ public class PlayerMovement : MonoBehaviour
             jumpBufferCounter -= Time.deltaTime;
             StartCoroutine(SetLateSueloCerca());
         }
+    }*/
+
+    private void HandleGravityAndJump()
+    {
+        Debug.Log($"enSuelo {enSuelo}");
+
+        if (enSuelo)
+        {
+            velocity.y = -2f; // mantiene pegado al suelo
+        }
+
+        if (enSuelo && Salto)
+        {
+            // velocity.y = 0f;
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+
+            animator.SetBool("Salto", Salto);
+           
+            Salto = false;
+
+            if (enSuelo)
+            {
+            Invoke(nameof(SetLateSuelo), 0.1f);
+            }
+            enSuelo = false;
+        }
+
+        float currentGravity = gravity;
+
+        if (velocity.y < 0f)
+            currentGravity *= fallMultiplier;
+
+        velocity.y += currentGravity * Time.deltaTime;
     }
-    
 
     private void Sprint()
     {
@@ -145,21 +189,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    private IEnumerator SetLateSueloCerca()
+    private void SetLateSuelo()
     {
-
-        yield return new WaitForSeconds(2f);
-
         //este raycast detecta el suelo con algo de margen
-
-        if(VicGenLib.Logic.RayCasts.SimpleCast(this.gameObject, Vector3.down, 0.5f))
-        {
-            animator.SetBool("SueloCerca", true);
-        }
-
-        else
-        {
-            animator.SetBool("SueloCerca", false);
-        }
+        animator.SetTrigger("EnSuelo");
+        
     }
 }
