@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms;
@@ -7,18 +8,21 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movimiento")]
     public float moveSpeed = 5f;
+    private float originalMoveSpeed;
 
     [Header("Salto")]
     public float jumpHeight = 3f;
     public float gravity = -9.81f;
     public float fallMultiplier = 1.5f;
 
+    public bool enSuelo;
+
     [Header("Jump Buffer")]
-    public float jumpBufferTime = 0.15f;
+    public float jumpBufferTime = 0.3f;
     private float jumpBufferCounter;
 
 
-    private CharacterController controller;
+    public CharacterController controller;
     [SerializeField] private Animator animator;
     private Vector2 moveInput;
     private Vector3 velocity;
@@ -26,16 +30,42 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
-        controller = GetComponent<CharacterController>();
+        if (controller == null)
+        {
+            controller = GetComponent<CharacterController>();    
+        }
         animator = GetComponent<Animator>();
+    }
+
+    void Start()
+    {
+        originalMoveSpeed = moveSpeed;
     }
 
     void Update()
     {
         HandleMovement();
         HandleGravityAndJump();
-        AnimationControl();
+        Sprint();
         controller.Move(velocity * Time.deltaTime);
+        enSuelo = controller.isGrounded;
+        Vector3 speed = controller.velocity;
+        Vector3 localMovement = controller.transform.InverseTransformDirection(speed);
+        Debug.Log($"Speed: {speed}, localMovement: {localMovement}");
+
+        animator.SetFloat("X", localMovement.x);
+        animator.SetFloat("Y", localMovement.y);
+        animator.SetFloat("Z", localMovement.z);
+
+        if(Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
+            animator.SetTrigger("Salto");
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetBool("SueloCerca", false);
+        }
+
+        animator.SetBool("EnSuelo", controller.isGrounded);
     }
 
     public void OnMove(InputValue value)
@@ -62,6 +92,14 @@ public class PlayerMovement : MonoBehaviour
         velocity.z = move.z * moveSpeed;
     }
 
+    private void OldInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            
+        }
+    }
+
     private void HandleGravityAndJump()
     {
         bool grounded = controller.isGrounded;
@@ -73,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (grounded && jumpBufferCounter > 0f)
         {
+            // velocity.y = 0f;
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             jumpBufferCounter = 0f;
         }
@@ -85,17 +124,42 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += currentGravity * Time.deltaTime;
         if (jumpBufferCounter > 0f)
+        {
             jumpBufferCounter -= Time.deltaTime;
+            StartCoroutine(SetLateSueloCerca());
+        }
+    }
+    
 
+    private void Sprint()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            moveSpeed = originalMoveSpeed * 2;
+        }
+
+        else
+        {
+            moveSpeed = originalMoveSpeed;
+        }
     }
 
-    private void AnimationControl()
-    {
-        Vector3 speed = controller.velocity;
-        Vector3 localMovement = controller.transform.InverseTransformDirection(speed);
-        // Debug.Log($"Speed: {speed}, localMovement: {localMovement}");
 
-        animator.SetFloat("X", localMovement.x);
-        animator.SetFloat("Y", localMovement.z);
+    private IEnumerator SetLateSueloCerca()
+    {
+
+        yield return new WaitForSeconds(2f);
+
+        //este raycast detecta el suelo con algo de margen
+
+        if(VicGenLib.Logic.RayCasts.SimpleCast(this.gameObject, Vector3.down, 0.5f))
+        {
+            animator.SetBool("SueloCerca", true);
+        }
+
+        else
+        {
+            animator.SetBool("SueloCerca", false);
+        }
     }
 }

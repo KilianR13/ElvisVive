@@ -7,6 +7,8 @@ public class PlayerLook : MonoBehaviour
 {
     [Header("Referencias")] public Camera cameraTransform;
 
+    public Camera FPSCameraTransform;
+
     [Header("Mirar (ratón)")] public float mouseSensitivity = 120f;
     public float minPitch = -40f;
     public float maxPitch = 40f;
@@ -81,5 +83,6 @@ public class PlayerLook : MonoBehaviour
         // Limita lo lejos que se puede girar la cámara hacia arriba o hacia abajo.
         cameraPitch = Mathf.Clamp(cameraPitch, minPitch, maxPitch);
         cameraTransform.transform.localRotation = Quaternion.Euler(cameraPitch, 0f, 0f);
+        FPSCameraTransform.transform.localRotation = Quaternion.Euler(cameraPitch, 0f, 0f);
     }
 }
