@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private float originalMoveSpeed;
 
     [Header("Salto")]
-    public float jumpHeight = 3f;
+    public float jumpHeight = 30f;
     public float gravity = -9.81f;
     public float fallMultiplier = 1.5f;
 
@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log($"Speed: {speed}, localMovement: {localMovement}");
 
         animator.SetFloat("X", localMovement.x);
-        animator.SetFloat("Y", velocity.y);
+        animator.SetFloat("Y", speed.y);
         animator.SetFloat("Z", localMovement.z);
 
         if(Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
@@ -64,10 +64,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            animator.SetBool("EnSuelo", false);
+            animator.SetBool("SueloCerca", false);
         }
 
-        animator.SetBool("EnSuelo", controller.isGrounded);
+        animator.SetBool("EnSuelo", enSuelo);
     }
 
     public void OnMove(InputValue value)
@@ -146,11 +146,13 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log($"enSuelo {enSuelo}");
 
+        Debug.Log($"Salto {Salto}");
+
         if (enSuelo)
         {
             velocity.y = -2f; // mantiene pegado al suelo
         }
-
+        
         if (enSuelo && Salto)
         {
             // velocity.y = 0f;
@@ -160,19 +162,8 @@ public class PlayerMovement : MonoBehaviour
            
             Salto = false;
 
-            if (enSuelo)
-            {
-            Invoke(nameof(SetLateSuelo), 0.1f);
-            }
             enSuelo = false;
         }
-
-        float currentGravity = gravity;
-
-        if (velocity.y < 0f)
-            currentGravity *= fallMultiplier;
-
-        velocity.y += currentGravity * Time.deltaTime;
     }
 
     private void Sprint()
@@ -186,13 +177,5 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed = originalMoveSpeed;
         }
-    }
-
-
-    private void SetLateSuelo()
-    {
-        //este raycast detecta el suelo con algo de margen
-        animator.SetTrigger("EnSuelo");
-        
     }
 }
