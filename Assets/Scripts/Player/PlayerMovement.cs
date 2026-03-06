@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms;
@@ -22,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     public float jumpBufferTime = 0.3f;
     private float jumpBufferCounter;
 
+    [Header("Camera")]
+    [SerializeField] private Transform camTransform;
+    [SerializeField] private bool shouldFaceDirection = false;
 
     public CharacterController controller;
     [SerializeField] private Animator animator;
@@ -45,15 +49,18 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        OldInput();
-        HandleMovement();
+        // Usa el InputSystem antiguo para registrar los saltos
+        HandleJumpOldInput();
+        
+        // Mueve al jugador en base a la dirección de la cámara
+        HandlePlayerMovementAndRotation();
+
+        // Controla varias cosas sobre la gravedad del jugador
         HandleGravityAndJump();
         Sprint();
-        controller.Move(velocity * Time.deltaTime);
         enSuelo = controller.isGrounded;
         Vector3 speed = controller.velocity;
         Vector3 localMovement = controller.transform.InverseTransformDirection(speed);
-        Debug.Log($"Speed: {speed}, localMovement: {localMovement}");
 
         animator.SetFloat("X", localMovement.x);
         animator.SetFloat("Y", speed.y);
@@ -68,6 +75,28 @@ public class PlayerMovement : MonoBehaviour
         }
 
         animator.SetBool("EnSuelo", enSuelo);
+
+        
+    }
+
+    private void HandlePlayerMovementAndRotation()
+    {
+        Vector3 forward = camTransform.forward;
+        Vector3 right = camTransform.right;
+
+        forward.y = 0;
+        right.y = 0;
+        forward.Normalize();
+        right.Normalize();
+
+        Vector3 moveDirection = forward * moveInput.y + right * moveInput.x;
+        controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+
+        if(shouldFaceDirection && moveDirection.sqrMagnitude > 0.001)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
+        }
     }
 
     public void OnMove(InputValue value)
@@ -83,23 +112,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OldInput()
+    private void HandleJumpOldInput()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Salto = true;
         }
-    }
-
-
-    private void HandleMovement()
-    {
-        Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
-        move = transform.TransformDirection(move);
-        move = Vector3.ClampMagnitude(move, 1f);
-
-        velocity.x = move.x * moveSpeed;
-        velocity.z = move.z * moveSpeed;
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -110,37 +128,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
-    /*private void HandleGravityAndJump()
-    {
-        bool grounded = controller.isGrounded;
-
-        if (grounded && velocity.y < 0f)
-        {
-            velocity.y = -2f; // mantiene pegado al suelo
-        }
-
-        if (grounded && jumpBufferCounter > 0f)
-
-        {
-            // velocity.y = 0f;
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            jumpBufferCounter = 0f;
-        }
-
-
-        // Gravedad
-        float currentGravity = gravity;
-        if (velocity.y < 0f)
-            currentGravity *= fallMultiplier;
-
-        velocity.y += currentGravity * Time.deltaTime;
-        if (jumpBufferCounter > 0f)
-        {
-            jumpBufferCounter -= Time.deltaTime;
-            StartCoroutine(SetLateSueloCerca());
-        }
-    }*/
 
     private void HandleGravityAndJump()
     {
