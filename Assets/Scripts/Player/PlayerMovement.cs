@@ -90,7 +90,9 @@ public class PlayerMovement : MonoBehaviour
         right.Normalize();
 
         Vector3 moveDirection = forward * moveInput.y + right * moveInput.x;
-        controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+        Vector3 finalMove = moveDirection * moveSpeed;
+        finalMove.y = velocity.y;
+        controller.Move(finalMove * Time.deltaTime);
 
         if(shouldFaceDirection && moveDirection.sqrMagnitude > 0.001)
         {
@@ -131,27 +133,40 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleGravityAndJump()
     {
-        Debug.Log($"enSuelo {enSuelo}");
-
-        Debug.Log($"Salto {Salto}");
-
-        if (enSuelo)
+        if (enSuelo && velocity.y < 0)
         {
-            velocity.y = -2f; // mantiene pegado al suelo
+            velocity.y = -2f;
         }
-        
+
         if (enSuelo && Salto)
         {
-            // velocity.y = 0f;
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-
             animator.SetBool("Salto", Salto);
-           
             Salto = false;
-
             enSuelo = false;
         }
+
+        velocity.y += gravity * Time.deltaTime;
     }
+    // private void HandleGravityAndJump()
+    // {
+    //     if (enSuelo)
+    //     {
+    //         velocity.y = -2f; // mantiene pegado al suelo
+    //     }
+        
+    //     if (enSuelo && Salto)
+    //     {
+    //         // velocity.y = 0f;
+    //         velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+
+    //         animator.SetBool("Salto", Salto);
+           
+    //         Salto = false;
+
+    //         enSuelo = false;
+    //     }
+    // }
 
     private void Sprint()
     {

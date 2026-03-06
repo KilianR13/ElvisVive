@@ -2747,8 +2747,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7846381895319396433}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.73206097, z: 0, w: 0.6812391}
-  m_LocalPosition: {x: -3.9896486, y: 1.5, z: 0.2873047}
+  m_LocalRotation: {x: 0, y: 0.8729164, z: 0, w: 0.48786986}
+  m_LocalPosition: {x: 1048.9131, y: 44.192, z: 327.99127}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2921,7 +2921,7 @@ Transform:
   m_GameObject: {fileID: 8119073734275573238}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2630.8, y: 106.73, z: 814.7385}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3077,6 +3077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   ataque: {fileID: 299278629490879107, guid: 83a03ae35caedcd468359ab118cbc033, type: 3}
+  cooldown: 0
 --- !u!1 &8119773426456640722
 GameObject:
   m_ObjectHideFlags: 0
