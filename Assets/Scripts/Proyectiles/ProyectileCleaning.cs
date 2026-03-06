@@ -37,4 +37,15 @@ public class ProyectileCleaning : MonoBehaviour
             
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+
+        Debug.Log("Trigger notas");
+
+        if (other.gameObject.CompareTag("Onda") && other.gameObject.GetComponent<AttackType>().metal == true)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

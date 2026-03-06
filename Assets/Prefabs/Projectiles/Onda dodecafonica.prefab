@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 4090195806078123932}
   - component: {fileID: 2244969801418328918}
   - component: {fileID: 3036660367390333473}
+  - component: {fileID: 8769726260628387228}
+  - component: {fileID: 8060905129845037910}
   m_Layer: 8
-  m_Name: Onda
+  m_Name: Onda dodecafonica
   m_TagString: Onda
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,5 +111,47 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.054279085, y: 0.023875069, z: 0.0025705844}
+  m_Size: {x: 0.054279085, y: 0.023875069, z: 0.008570584}
   m_Center: {x: 0.0000000018626451, y: 0.0028249626, z: 0}
+--- !u!54 &8769726260628387228
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299278629490879107}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!114 &8060905129845037910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299278629490879107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68e65b0edf7ea7145889f6a8cb67abbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackType
+  metal: 0
+  dodecafonico: 1
+  leifmotif: 0

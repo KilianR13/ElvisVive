@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -3904953518789016348}
   m_Layer: 0
   m_Name: Beam_Note
-  m_TagString: Untagged
+  m_TagString: Nota
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,3 +165,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d40da6780bad114cb5661b00174dd91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuitarVidas
+  UI: {fileID: 0}
