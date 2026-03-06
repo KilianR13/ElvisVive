@@ -13,6 +13,8 @@ public class PlayerAttack : MonoBehaviour
     private Animator animator;
     [SerializeField] private GameObject ataque;
 
+    public float cooldown;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +24,10 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (cooldown > -0.1f)
+        cooldown -= Time.deltaTime;
+
+        if (cooldown <= 0)
         StartCoroutine(Attack());
     }
 
@@ -30,9 +36,14 @@ public class PlayerAttack : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0) == true)
         {
-            GameObject objeto = Instantiate(ataque, this.gameObject.transform.position + new UnityEngine.Vector3(0,5,0), this.gameObject.transform.rotation);
 
-            objeto.transform.localRotation = quaternion.Euler(objeto.transform.localRotation.x, objeto.transform.localRotation.y, objeto.transform.localRotation.z);
+            cooldown = 2;
+
+            GameObject objeto = Instantiate(ataque, this.gameObject.transform.position + new UnityEngine.Vector3(0,3,0), quaternion.identity);
+
+            Debug.Log($"rotacion {this.gameObject.transform.localRotation.x}, {this.gameObject.transform.localRotation.y}");
+
+            objeto.transform.Rotate(90, this.gameObject.transform.rotation.eulerAngles.y,0);
 
             MoverAtaque(objeto);
 
@@ -47,7 +58,7 @@ public class PlayerAttack : MonoBehaviour
     {   
         while (true)
         {
-            objeto.transform.localPosition += new UnityEngine.Vector3(0.1f,0,0);
+            objeto.transform.position += objeto.transform.up * Time.deltaTime * 10f;
             
             await UniTask.Delay(1);
         }

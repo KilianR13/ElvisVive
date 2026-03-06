@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4090195806078123932}
   - component: {fileID: 2244969801418328918}
   - component: {fileID: 3036660367390333473}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Onda
-  m_TagString: Untagged
+  m_TagString: Onda
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7aebb3f13e468d14b9f1003ef3aea91d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,7 +89,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &3036660367390333473
 BoxCollider:
