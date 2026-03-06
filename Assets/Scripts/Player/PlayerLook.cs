@@ -5,13 +5,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerLook : MonoBehaviour
 {
-    [Header("Referencias")] public Camera cameraTransform;
+    // [Header("Referencias")] public Camera cameraTransform;
 
-    public Camera FPSCameraTransform;
+    // public Camera FPSCameraTransform;
 
-    [Header("Mirar (ratón)")] public float mouseSensitivity = 120f;
-    public float minPitch = -40f;
-    public float maxPitch = 40f;
+    // [Header("Mirar (ratón)")] public float mouseSensitivity = 120f;
+    // public float minPitch = -40f;
+    // public float maxPitch = 40f;
 
     private Vector2 lookInput;
     private float cameraPitch;
@@ -53,36 +53,36 @@ public class PlayerLook : MonoBehaviour
         }
     }
 
-    void OnLook(InputValue value)
-    {
-        lookInput = value.Get<Vector2>();
-    }
+    // void OnLook(InputValue value)
+    // {
+    //     lookInput = value.Get<Vector2>();
+    // }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (cameraTransform == null)
-        {
-            return;
-        }
-        HandleLook();
-    }
+    // // Update is called once per frame
+    // void Update()
+    // {
+    //     if (cameraTransform == null)
+    //     {
+    //         return;
+    //     }
+    //     HandleLook();
+    // }
 
-    private void HandleLook()
-    {
-        // Lee el ratón
-        float mouseX = lookInput.x * mouseSensitivity * Time.deltaTime;
-        float mouseY = lookInput.y * mouseSensitivity * Time.deltaTime;
+    // private void HandleLook()
+    // {
+    //     // Lee el ratón
+    //     float mouseX = lookInput.x * mouseSensitivity * Time.deltaTime;
+    //     float mouseY = lookInput.y * mouseSensitivity * Time.deltaTime;
 
-        // Gira el personaje en el eje X
-        transform.Rotate(0f, mouseX, 0f);
+    //     // Gira el personaje en el eje X
+    //     transform.Rotate(0f, mouseX, 0f);
 
-        // Controla si la cámara mira hacia arriba o hacia abajo
-        cameraPitch -= mouseY;
+    //     // Controla si la cámara mira hacia arriba o hacia abajo
+    //     cameraPitch -= mouseY;
         
-        // Limita lo lejos que se puede girar la cámara hacia arriba o hacia abajo.
-        cameraPitch = Mathf.Clamp(cameraPitch, minPitch, maxPitch);
-        cameraTransform.transform.localRotation = Quaternion.Euler(cameraPitch, 0f, 0f);
-        FPSCameraTransform.transform.localRotation = Quaternion.Euler(cameraPitch, 0f, 0f);
-    }
+    //     // Limita lo lejos que se puede girar la cámara hacia arriba o hacia abajo.
+    //     cameraPitch = Mathf.Clamp(cameraPitch, minPitch, maxPitch);
+    //     cameraTransform.transform.localRotation = Quaternion.Euler(cameraPitch, 0f, 0f);
+    //     FPSCameraTransform.transform.localRotation = Quaternion.Euler(cameraPitch, 0f, 0f);
+    // }
 }
