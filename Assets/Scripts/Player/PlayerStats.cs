@@ -8,6 +8,10 @@ public class PlayerStats : MonoBehaviour
 
     public int health;
 
+    public bool potenciado;
+
+    public float TimerPotenciador;
+
     private float healthImageXOffset;
 
     private float healthImageYOffset;
@@ -25,7 +29,20 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        if(TimerPotenciador > 0)
+        {
+            potenciado = true;
+        }
+        else
+        {
+            potenciado = false;
+        }
+
+        TimerPotenciador -= Time.deltaTime;
+
+
+
     }
 
     IEnumerator GenerateLives()

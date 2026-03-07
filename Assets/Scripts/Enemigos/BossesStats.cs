@@ -5,11 +5,17 @@ public class BossesStats : MonoBehaviour
 
     public int vidas;
 
+    public bool confuso;
 
+    [SerializeField] private float TimerConfuso;
+
+    public float TimerConfusoAsignado;
+
+    public GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -19,6 +25,19 @@ public class BossesStats : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+
+        if(TimerConfuso > -0.1f)
+        TimerConfuso -= Time.deltaTime;
+
+        if(TimerConfuso > 0)
+        {
+            confuso = true;
+        }
+        else
+        {
+            confuso = false;
+        }
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -28,6 +47,18 @@ public class BossesStats : MonoBehaviour
 
         if(other.gameObject.CompareTag("Onda"))
         {
+
+            if (other.gameObject.GetComponent<AttackType>().leifmotif)
+            {
+                player.GetComponent<PlayerStats>().TimerPotenciador = 5;
+            }
+
+            if (other.gameObject.GetComponent<AttackType>().dodecafonico)
+            {
+                TimerConfuso = TimerConfusoAsignado;
+            }
+
+
             Debug.Log("Daño a jefe");
             vidas--;
 

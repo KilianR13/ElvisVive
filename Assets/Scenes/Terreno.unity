@@ -163,7 +163,7 @@ MonoBehaviour:
   - {fileID: 1003249889267844856, guid: 3dc7f01e1ac1e764eb50d3d16c3428f4, type: 3}
   playerInRange: 0
   randomInt: 0
-  tiempoSpawn: 2
+  tiempoSpawn: 0.3
 --- !u!135 &168863995
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -293,6 +293,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossesStats
   vidas: 20
+  confuso: 0
+  TimerConfuso: 0
+  TimerConfusoAsignado: 5
+  player: {fileID: 0}
 --- !u!54 &168864001
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1748,7 +1752,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2040802646179036161, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_ControllerManager.Controllers.Array.data[0].Input.Gain
-      value: 2
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040802646179036161, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      propertyPath: m_ControllerManager.Controllers.Array.data[1].Input.Gain
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2781381170903842693, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1781,6 +1789,34 @@ PrefabInstance:
     - target: {fileID: 4010570065161016757, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: field of view
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332267245000952161, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      propertyPath: ataque
+      value: 
+      objectReference: {fileID: 299278629490879107, guid: 58093689a32cc744cb12e423517e2120, type: 3}
+    - target: {fileID: 4332267245000952161, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      propertyPath: ataqueMetal
+      value: 
+      objectReference: {fileID: 299278629490879107, guid: 58093689a32cc744cb12e423517e2120, type: 3}
+    - target: {fileID: 4332267245000952161, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      propertyPath: ataqueLeitmotif
+      value: 
+      objectReference: {fileID: 299278629490879107, guid: 83a03ae35caedcd468359ab118cbc033, type: 3}
+    - target: {fileID: 4332267245000952161, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      propertyPath: ataqueDodecafonia
+      value: 
+      objectReference: {fileID: 299278629490879107, guid: 3be297de27a2bb442a6462ba155c271a, type: 3}
+    - target: {fileID: 4332267245000952161, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      propertyPath: cooldownMetalAsignado
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332267245000952161, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      propertyPath: cooldownLeitmotifAsignado
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332267245000952161, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      propertyPath: cooldownDodecafoniaAsignado
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7329098596374276979, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: field of view

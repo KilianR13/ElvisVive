@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -9098013585632790069}
   - component: {fileID: 2873818963705171028}
   - component: {fileID: 334040763054773002}
+  - component: {fileID: -3790905852947237707}
   m_Layer: 0
   m_Name: Dotted_Minim
   m_TagString: Nota
@@ -92,6 +93,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &-4642145133581285750
 BoxCollider:
@@ -166,3 +168,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuitarVidas
   UI: {fileID: 0}
+--- !u!114 &-3790905852947237707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003249889267844856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2cca287c528fd842ab13f6b3f5eaea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Notes

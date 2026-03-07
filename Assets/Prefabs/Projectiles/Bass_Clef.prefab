@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -5229350019454679448}
   - component: {fileID: -6319420265586254292}
   - component: {fileID: 7803147351311834883}
+  - component: {fileID: 7998273491476692911}
   m_Layer: 0
   m_Name: Bass_Clef
   m_TagString: Nota
@@ -92,6 +93,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &-9080517260875427276
 BoxCollider:
@@ -166,3 +168,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuitarVidas
   UI: {fileID: 0}
+--- !u!114 &7998273491476692911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5011110426007122478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2cca287c528fd842ab13f6b3f5eaea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Notes

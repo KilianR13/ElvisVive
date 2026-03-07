@@ -1,13 +1,7 @@
 using UnityEngine;
 
-public class AttackType : MonoBehaviour
+public class Notes : MonoBehaviour
 {
-
-    public bool metal; //manejado en el script de notas
-    public bool dodecafonico;
-    public bool leifmotif;
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,13 +11,14 @@ public class AttackType : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if(dodecafonico)
-
-        if(leifmotif)
-        {
-            
-        }
         
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Onda") && other.gameObject.GetComponent<AttackType>().metal)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

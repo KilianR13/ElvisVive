@@ -64,7 +64,19 @@ public class LanzarProyectil : MonoBehaviour
 
                     proyectil.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 1,  this.gameObject.transform.position.z);
 
-                    proyectil.transform.LookAt(player.transform.GetChild(0).gameObject.transform);
+                    if (this.gameObject.GetComponent<BossesStats>().confuso)
+                    {
+                        float x = UnityEngine.Random.Range(0,360);
+                        float y = UnityEngine.Random.Range(0,360);
+                        float z = UnityEngine.Random.Range(0,360);
+
+                        proyectil.transform.rotation = quaternion.Euler(x,y,z); 
+                    }
+
+                    else
+                    {
+                        proyectil.transform.LookAt(player.transform.GetChild(0).gameObject.transform);
+                    }
 
                     MoverProyectil(proyectil);
 
@@ -78,7 +90,7 @@ public class LanzarProyectil : MonoBehaviour
         while (true)
         {
             
-            proyectil.transform.Translate(20 * Time.deltaTime * Vector3.forward);
+            proyectil.transform.Translate(60 * Time.deltaTime * Vector3.forward);
 
             await UniTask.Delay(2);
 
