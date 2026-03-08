@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
 {
 
     private Animator animator;
+    private CharacterController CC;
 
     [SerializeField] private GameObject ataqueMetal;
 
@@ -38,6 +39,7 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         animator = this.gameObject.GetComponent<Animator>();
+        CC = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -62,7 +64,7 @@ public class PlayerAttack : MonoBehaviour
 
             MoverAtaqueMetal(objeto);
 
-            animator.SetTrigger("BasicAttack");
+            animationHandler(); // Placeholder?
         }
 
         yield return null;
@@ -83,7 +85,7 @@ public class PlayerAttack : MonoBehaviour
 
             MoverAtaqueDodecafonico(objeto);
 
-            animator.SetTrigger("BasicAttack");
+            animationHandler(); // Placeholder?
         }
 
         yield return null;
@@ -103,7 +105,7 @@ public class PlayerAttack : MonoBehaviour
 
             MoverAtaqueLeitMotif(objeto);
 
-            animator.SetTrigger("BasicAttack");
+            animationHandler(); // Placeholder?
         }
 
         yield return null;
@@ -129,6 +131,16 @@ public class PlayerAttack : MonoBehaviour
             await UniTask.Delay(1);
         }
         
+    }
+
+    // No creo que usemos más animaciones de ataque, pero igualmente, si el jugador ataca en el aire queda fatal
+    // Principalmente porque cuando toca el suelo hace la animación de ataque.
+    private void animationHandler()
+    {
+        if (animator.GetBool("EnSuelo"))
+        {
+            animator.SetTrigger("BasicAttack");
+        }
     }
 
     public async Task<UniTask> MoverAtaqueLeitMotif(GameObject objeto)

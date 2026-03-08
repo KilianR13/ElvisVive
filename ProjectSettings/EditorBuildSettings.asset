@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 11801479554fb304587d3b202fe1bd15
+  - enabled: 1
+    path: Assets/Scenes/Terreno.unity
+    guid: c58d3d5af1ea9bb43804d9e58508a5d3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
