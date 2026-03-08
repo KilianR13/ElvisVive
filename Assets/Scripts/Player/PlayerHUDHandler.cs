@@ -23,6 +23,6 @@ public class PlayerHUDHandler : MonoBehaviour
     {
         Debug.Log($"Valor de la barra de vida: {PlayerHealthBar.value}");
         PlayerHealthBar.value = currentValue / maxValue;
-        // currentHealth.text = $"{currentValue}/{maxValue}";
+        currentHealth.text = $"{currentValue}/{maxValue}";
     }
 }
