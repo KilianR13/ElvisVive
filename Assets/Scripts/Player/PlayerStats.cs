@@ -5,25 +5,20 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-
+    [HideInInspector] // Esto solo oculta la variable "health" en el inspector. Más cómodo.
     public int health;
+    [SerializeField] private int maxHealth; 
 
     public bool potenciado;
 
     public float TimerPotenciador;
-
-    private float healthImageXOffset;
-
-    private float healthImageYOffset;
-
-    [SerializeField] GameObject lifePrefab;
-
-    [SerializeField] GameObject lifesSpawn;
+    [SerializeField] PlayerHUDHandler PlayerHUD;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        StartCoroutine(GenerateLives());
+        health = maxHealth;
+        PlayerHUD.UpdateHealthbar(health, maxHealth);
     }
 
     // Update is called once per frame
@@ -45,27 +40,23 @@ public class PlayerStats : MonoBehaviour
 
     }
 
-    IEnumerator GenerateLives()
+    // Función a la que se llama cuando el jugador recibe daño. Actualiza automáticamente la barra de vida.
+    public void TakeDamage(int damage)
     {
-
-        for (int i = 1; i < health + 1; i++)
+        if (health - damage <= 0)
         {
-            
-            Instantiate(lifePrefab, lifesSpawn.transform.position - new Vector3(healthImageXOffset, healthImageYOffset, 0), quaternion.identity, lifesSpawn.transform);
-
-            healthImageXOffset += 120;
-
-            if (i % 6 == 0)
-            {
-                healthImageYOffset += 120;
-
-                healthImageXOffset = 0; 
-            }
-
-            yield return null;
-
+            PlayerHUD.PlayerHealthBar.value = 0;
+            PlayerDie();
         }
 
-        yield return new WaitForSeconds(0.001f);
+        health -= damage;
+        PlayerHUD.UpdateHealthbar(health, maxHealth);
+        
+    }
+
+    // Placeholder
+    public void PlayerDie()
+    {
+        
     }
 }

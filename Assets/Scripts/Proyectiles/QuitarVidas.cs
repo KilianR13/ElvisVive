@@ -21,11 +21,11 @@ public class QuitarVidas : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerStats>().health--;
+            collision.gameObject.GetComponent<PlayerStats>().TakeDamage(1);
 
-            int childCount = UI.transform.GetChild(0).gameObject.transform.childCount - 1;
+            // int childCount = UI.transform.GetChild(0).gameObject.transform.childCount - 1;
 
-            Destroy(UI.transform.GetChild(0).GetChild(childCount).gameObject);
+            // Destroy(UI.transform.GetChild(0).GetChild(childCount).gameObject);
 
             Destroy(this.gameObject);
         }
