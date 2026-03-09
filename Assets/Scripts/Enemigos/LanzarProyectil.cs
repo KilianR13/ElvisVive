@@ -75,7 +75,7 @@ public class LanzarProyectil : MonoBehaviour
 
                     else
                     {
-                        proyectil.transform.LookAt(player.transform.GetChild(0).gameObject.transform);
+                        proyectil.transform.LookAt(player.transform.GetChild(1).gameObject.transform);
                     }
 
                     MoverProyectil(proyectil);

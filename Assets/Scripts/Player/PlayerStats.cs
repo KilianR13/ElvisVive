@@ -14,6 +14,10 @@ public class PlayerStats : MonoBehaviour
     public float TimerPotenciador;
     [SerializeField] PlayerHUDHandler PlayerHUD;
 
+    public bool hasLeit;
+
+    public bool hasDodec;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

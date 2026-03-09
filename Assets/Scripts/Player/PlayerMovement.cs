@@ -1,15 +1,23 @@
 using System.Collections;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SocialPlatforms;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
+
+    public LensDistortion lensDistortion;
+
     [Header("Movimiento")]
     public float moveSpeed = 5f;
     private float originalMoveSpeed;
+
+    public float MovementPenalty;
 
     [Header("Salto")]
     public float jumpHeight = 30f;
@@ -39,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         {
             controller = GetComponent<CharacterController>();    
         }
+
         animator = GetComponent<Animator>();
     }
 
@@ -76,7 +85,11 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetBool("EnSuelo", enSuelo);
 
-        
+        this.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Volume>().profile.TryGet<LensDistortion>(out lensDistortion);
+
+        MovementPenalty =  (((float)lensDistortion.intensity * -1) /2) + 1;
+
+        Debug.Log($"movement penalty {MovementPenalty}");
     }
 
     private void HandlePlayerMovementAndRotation()
@@ -90,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         right.Normalize();
 
         Vector3 moveDirection = forward * moveInput.y + right * moveInput.x;
-        Vector3 finalMove = moveDirection * moveSpeed;
+        Vector3 finalMove = moveDirection * moveSpeed * MovementPenalty;
         finalMove.y = velocity.y;
         controller.Move(finalMove * Time.deltaTime);
 

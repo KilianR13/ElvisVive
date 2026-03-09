@@ -187,13 +187,13 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
-        if (cooldownLeitmotif <= 0)
+        if (cooldownLeitmotif <= 0 && this.gameObject.GetComponent<PlayerStats>().hasLeit)
         StartCoroutine(LeitmotifAttack());
 
         if (cooldownDodecafonia > -0.1f)
         cooldownDodecafonia-= Time.deltaTime;
 
-        if (cooldownDodecafonia <= 0)
+        if (cooldownDodecafonia <= 0 && this.gameObject.GetComponent<PlayerStats>().hasDodec)
         StartCoroutine(DodecafonicAttack());
     }
 
