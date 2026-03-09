@@ -21,10 +21,6 @@ public class BossesStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (vidas == 0)
-        {
-            this.gameObject.SetActive(false);
-        }
 
         if(TimerConfuso > -0.1f)
         TimerConfuso -= Time.deltaTime;

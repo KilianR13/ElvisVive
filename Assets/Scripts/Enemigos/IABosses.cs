@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -7,7 +8,11 @@ public class IABosses : MonoBehaviour
 {
     [SerializeField] private GameObject player;
 
+    public GameObject soundHandler;
+
     public bool cigala,fari;
+
+    private bool activo;
 
     public float tiempoCooldownCigalaAsignado, tiempoCooldownFariAsignado, tiempoVulnerabilidadAsignado; 
 
@@ -19,6 +24,8 @@ public class IABosses : MonoBehaviour
     void Start()
     {
        player = GameObject.Find("Player");
+
+       soundHandler = GameObject.Find("SoundHandler");
 
        cooldownCigala = tiempoCooldownCigalaAsignado;
 
@@ -53,13 +60,15 @@ public class IABosses : MonoBehaviour
     {
 
         if (this.gameObject.GetComponent<BossesStats>().confuso)
-            {
-                cooldownCigala = tiempoCooldownCigalaAsignado;
+        {
+            cooldownCigala = tiempoCooldownCigalaAsignado;
 
-                player.GetComponent<PlayerMovement>().lensDistortion.intensity.value = 0;
-            }
+            StartCoroutine(DistortMusic());
+
+            player.GetComponent<PlayerMovement>().lensDistortion.intensity.value = 0;
+        }
         
-        if (cooldownCigala < 0)
+        if (cooldownCigala < 0 && !activo)
         {
             player.GetComponent<PlayerMovement>().lensDistortion.intensity.value = intensityVariation;
 
@@ -70,6 +79,37 @@ public class IABosses : MonoBehaviour
                 player.GetComponent<PlayerMovement>().lensDistortion.intensity.value = 0.4f;
             }
         }
+
+        if (this.gameObject.GetComponent<BossesStats>().vidas <= 0 && !activo)
+        {
+
+            activo = true;
+
+            StartCoroutine(SecuenciaFinalCigala());
+        }
+    }
+
+    IEnumerator DistortMusic()
+    {
+        for(int i = 0; i < 50; i++)
+        {
+            soundHandler.GetComponent<AudioSource>().pitch = Random.Range(0.8f, 1.2f);
+
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        soundHandler.GetComponent<AudioSource>().pitch = 1;
+    }
+
+    IEnumerator SecuenciaFinalCigala()
+    {
+        soundHandler.GetComponent<AudioSource>().clip = soundHandler.GetComponent<AlmacenamientoSonidos>().sonidosCigala[1];
+
+        soundHandler.GetComponent<AudioSource>().Play();
+
+        yield return new WaitForSeconds(10);
+
+        this.gameObject.SetActive(false);
     }
 
     private void FariIA()

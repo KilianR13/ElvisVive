@@ -52,7 +52,7 @@ public class LanzarProyectil : MonoBehaviour
 
     IEnumerator SpawnProyectil()
     {
-            while (true)
+            while (this.gameObject.GetComponent<BossesStats>().vidas > 0)
             {
                 yield return new WaitForSeconds(tiempoSpawn);
 

@@ -917,7 +917,7 @@ GameObject:
   - component: {fileID: 994362548}
   m_Layer: 7
   m_Name: El Cigala PlaceHolder
-  m_TagString: Untagged
+  m_TagString: Cigala
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -935,6 +935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IABosses
   player: {fileID: 1892531942570847046}
+  soundHandler: {fileID: 0}
   cigala: 1
   fari: 0
   tiempoCooldownCigalaAsignado: 15
@@ -1573,7 +1574,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1667,7 +1668,7 @@ Transform:
   m_GameObject: {fileID: 1571904543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2344.271, y: 98.59346, z: 719.2638}
+  m_LocalPosition: {x: 2344.271, y: 166, z: 719.2638}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1686,7 +1687,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AlmacenamientoSonidos
   sonidosCigala:
-  - {fileID: 8300000, guid: 2fe309627fd7b854ebec90b81a8c273c, type: 3}
+  - {fileID: 8300000, guid: 04150fb21f8f77a4eb77892879e1c33d, type: 3}
+  - {fileID: 8300000, guid: c38e532e63797624f82c232c4144168a, type: 3}
   sonidosFari: []
 --- !u!1 &1625852248
 GameObject:
@@ -1862,6 +1864,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8509207315644293687, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
   m_PrefabInstance: {fileID: 5040198505296568859}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1892531942570847054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892531942570847046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f99063df2a6834d8c64a0b2c9c0e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventsTriggeredByPlayer
+  soundHandler: {fileID: 0}
 --- !u!1001 &4665760684742891439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1914,6 +1929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jefe Placeholder
       objectReference: {fileID: 0}
+    - target: {fileID: 4293772433329839940, guid: 34263e8c4e5aa4d4ea164cff1c6a96e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1929,11 +1948,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2630.8
+      value: 2744
       objectReference: {fileID: 0}
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 106.73
+      value: 198
       objectReference: {fileID: 0}
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1975,6 +1994,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2520294918349893915, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      propertyPath: cooldownMetalAsignado
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520294918349893915, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      propertyPath: cooldownDodecafoniaAsignado
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8509207315644293687, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1982,7 +2009,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8509207315644293687, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1892531942570847054}
   m_SourcePrefab: {fileID: 100100000, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
