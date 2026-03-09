@@ -1,10 +1,10 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Rendering;
 
 public class IABosses : MonoBehaviour
 {
-
     [SerializeField] private GameObject player;
 
     public bool cigala,fari;
