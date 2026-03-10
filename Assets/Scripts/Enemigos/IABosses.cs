@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
@@ -12,11 +11,11 @@ public class IABosses : MonoBehaviour
 
     public bool cigala,fari;
 
-    private bool activo;
+    private bool activo; //secuencia cigala
 
     public float tiempoCooldownCigalaAsignado, tiempoCooldownFariAsignado, tiempoVulnerabilidadAsignado; 
 
-    [SerializeField] private float cooldownCigala, cooldownFari;
+    public float cooldownCigala, cooldownFari;
 
     [SerializeField] private float intensityVariation;
 
@@ -118,10 +117,5 @@ public class IABosses : MonoBehaviour
         {
             
         }
-    }
-
-    private void EndOfHability()
-    {
-        
     }
 }

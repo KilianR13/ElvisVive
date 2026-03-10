@@ -56,9 +56,31 @@ public class BossesStats : MonoBehaviour
 
 
             Debug.Log("Daño a jefe");
-            vidas--;
 
-            Destroy(other.gameObject);
+            if(this.gameObject.GetComponent<IABosses>().cooldownFari <= 0 && this.gameObject.GetComponent<IABosses>().fari)
+            {
+
+                Debug.Log("entrada ataque fari");
+
+                if (other.gameObject.GetComponent<AttackType>().dodecafonico || confuso)
+                {
+                    vidas--;
+
+                    this.gameObject.GetComponent<IABosses>().cooldownFari = this.gameObject.GetComponent<IABosses>().tiempoCooldownFariAsignado;
+
+                    Destroy(other.gameObject);
+                }
+                else
+                {
+                    other.gameObject.transform.Rotate(0,0,180);
+                }
+            }
+            else
+            {
+               vidas--; 
+
+               Destroy(other.gameObject);
+            }
         }
     }
 }
