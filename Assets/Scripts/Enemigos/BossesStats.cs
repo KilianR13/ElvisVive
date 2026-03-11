@@ -57,7 +57,7 @@ public class BossesStats : MonoBehaviour
 
             Debug.Log("Daño a jefe");
 
-            if(this.gameObject.GetComponent<IABosses>().cooldownFari <= 0 && this.gameObject.GetComponent<IABosses>().fari)
+            if(this.gameObject.GetComponent<IABosses>() != null && this.gameObject.GetComponent<IABosses>().cooldownFari <= 0 && this.gameObject.GetComponent<IABosses>().fari)
             {
 
                 Debug.Log("entrada ataque fari");

@@ -67,7 +67,7 @@ public class IABosses : MonoBehaviour
             player.GetComponent<PlayerMovement>().lensDistortion.intensity.value = 0;
         }
         
-        if (cooldownCigala < 0 && !activo)
+        if (cooldownCigala < 0 && !activo && this.gameObject.GetComponent<LanzarProyectil>().playerInRange)
         {
             player.GetComponent<PlayerMovement>().lensDistortion.intensity.value = intensityVariation;
 
