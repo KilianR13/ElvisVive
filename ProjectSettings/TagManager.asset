@@ -10,6 +10,7 @@ TagManager:
   - Cigala
   - Fari
   - Paquirrin
+  - NPC
   layers:
   - Default
   - TransparentFX
