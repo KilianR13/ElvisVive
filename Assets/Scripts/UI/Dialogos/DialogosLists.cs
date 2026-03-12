@@ -116,12 +116,12 @@ public class DialogosLists : MonoBehaviour
 
                     if (dialogoArray.Length > 20)
                     {
-                        tiempoDialogos = 0.14f * dialogoArray.Length / 3;
+                        tiempoDialogos = 0.25f * dialogoArray.Length / 3;
                     }
 
                     if(dialogoArray.Length <= 20)
                     {
-                        tiempoDialogos = 0.2f * dialogoArray.Length / 2;
+                        tiempoDialogos = 0.3f * dialogoArray.Length / 2;
                     }
                     
                     Debug.Log($"Multidialogo: {dialogoArray}");
