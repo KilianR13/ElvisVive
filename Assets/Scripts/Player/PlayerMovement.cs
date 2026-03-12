@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     private bool Salto;
     public bool enSuelo;
 
+    private bool saltoTriggerActivo;
+
     [Header("Jump Buffer")]
     public float jumpBufferTime = 0.3f;
     private float jumpBufferCounter;
@@ -75,8 +77,11 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Y", speed.y);
         animator.SetFloat("Z", localMovement.z);
 
-        if(Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
+        if(Input.GetKeyDown(KeyCode.Space) && controller.isGrounded && !saltoTriggerActivo)
+        {
             animator.SetTrigger("Salto");
+        }
+            
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
