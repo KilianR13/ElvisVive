@@ -14,6 +14,7 @@ public class Objetivos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
 
         if(objetivos[2].GetComponent<BossesStats>().vidas == 0)
         {
