@@ -126,6 +126,7 @@ public class DialogosLists : MonoBehaviour
                     
                     Debug.Log($"Multidialogo: {dialogoArray}");
                     StartCoroutine(DialogoLogic(dialogoArray));
+
                     yield return new WaitForSeconds(tiempoDialogos + delayBetweenDialoges);
             }
 

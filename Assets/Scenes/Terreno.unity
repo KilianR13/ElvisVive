@@ -1299,7 +1299,7 @@ GameObject:
   - component: {fileID: 670509569}
   m_Layer: 7
   m_Name: El Fari PlaceHolder
-  m_TagString: Cigala
+  m_TagString: Fari
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1613,7 +1613,7 @@ Transform:
   m_GameObject: {fileID: 670509568}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2711.3, y: 75.18, z: 2963.84}
+  m_LocalPosition: {x: 2711.3, y: 77.64, z: 2963.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3926,7 +3926,7 @@ Transform:
   m_GameObject: {fileID: 1916330613}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1553.6448, y: -441.45212, z: 824.2614}
+  m_LocalPosition: {x: 1589.13, y: -410.21, z: 824.2614}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3945,10 +3945,121 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogos
   dialogos:
-  - 
-  - 
-  - 
-  dialogosSeleccionados: 000000000100000002000000
+  - Noble guerrero, necesitamos tu ayuda
+  - "El Fari tiene atrapado a Elvis, necesitar\xE1s coraje para derrotarlo"
+  - "Tu fuerza m\xFAsical y mis leitmotifs posiblemente le puedan hacer frente al
+    Fari "
+  - "Tu fuerza m\xFAsical y mis leitmotifs posiblemente le puedan hacer frente al
+    Fari "
+  dialogosSeleccionados: 00000000010000000200000003000000
+--- !u!1001 &1984624748
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1892531942570847061}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -151.03418
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.3241425
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 79.60884
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+      propertyPath: m_Name
+      value: Flecha 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 65702495048144492, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+    - {fileID: -8700617353114198275, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1984624752}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1984624751}
+  m_SourcePrefab: {fileID: 100100000, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+--- !u!4 &1984624749 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+  m_PrefabInstance: {fileID: 1984624748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1984624750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3b7fe0d8bf1fe054d8451b906f389173, type: 3}
+  m_PrefabInstance: {fileID: 1984624748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1984624751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984624750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7473cfd577a5484492f02136442044d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArrowLookAtObjective
+  objetivo: {fileID: 0}
+--- !u!114 &1984624752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984624750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb05b1e2120c284998b02ae62afa1d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Objetivos
+  objetivos:
+  - {fileID: 996176793}
+  - {fileID: 2050300111}
+  - {fileID: 119184632385364747}
+  - {fileID: 911172758}
+  - {fileID: 994362537}
+  - {fileID: 1631251450}
+  - {fileID: 670509568}
 --- !u!1 &2050300111
 GameObject:
   m_ObjectHideFlags: 0
@@ -3964,7 +4075,7 @@ GameObject:
   - component: {fileID: 2050300116}
   - component: {fileID: 2050300117}
   m_Layer: 0
-  m_Name: "Sergey Rajm\xE1ninov"
+  m_Name: Sergey
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4618,6 +4729,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventsTriggeredByPlayer
   soundHandler: {fileID: 0}
+--- !u!4 &1892531942570847061 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+  m_PrefabInstance: {fileID: 5040198505296568859}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3571237862241847952
 Transform:
   m_ObjectHideFlags: 0
@@ -4667,15 +4783,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2018
+      value: 2521.1
       objectReference: {fileID: 0}
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 112.75
+      value: 103.2
       objectReference: {fileID: 0}
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2641
+      value: 817.3
       objectReference: {fileID: 0}
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4727,7 +4843,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1984624749}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8509207315644293687, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       insertIndex: -1
