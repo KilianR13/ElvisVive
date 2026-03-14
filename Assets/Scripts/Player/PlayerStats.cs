@@ -40,7 +40,15 @@ public class PlayerStats : MonoBehaviour
 
         TimerPotenciador -= Time.deltaTime;
 
+        if (this.gameObject.GetComponent<EventsTriggeredByPlayer>().TriggerLulu)
+        {
+            hasDodec = true;
+        }
 
+        if (this.gameObject.GetComponent<EventsTriggeredByPlayer>().TriggerParsifal)
+        {
+            hasLeit = true;
+        }
 
     }
 

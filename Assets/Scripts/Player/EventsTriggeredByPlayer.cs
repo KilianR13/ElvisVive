@@ -5,6 +5,8 @@ public class EventsTriggeredByPlayer : MonoBehaviour
 
     public GameObject soundHandler;
 
+    public bool TriggerAlcalde, TriggerSergey, TriggerLulu, TriggerParsifal;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,8 +46,31 @@ public class EventsTriggeredByPlayer : MonoBehaviour
                 other.gameObject.GetComponent<DialogoCorrespondiente>().
                 dialogoCorrespondiente.gameObject.transform.parent.gameObject.
                 transform.GetComponent<DialogosLists>().activar = true;
+
+                if (other.gameObject.name == "Alcalde")
+                {
+                    TriggerAlcalde = true;
+                }
+
+                if (other.gameObject.name == "Sergey")
+                {
+                    TriggerSergey = true;
+                }
+
+                if (other.gameObject.name == "Lulu")
+                {
+                    TriggerLulu = true;
+                }
+
+                if (other.gameObject.name == "Parsifal")
+                {
+                    TriggerParsifal = true;
+                }
+
             }
         }
+
+        
     }
 
     void OnTriggerExit(Collider other)
