@@ -17,7 +17,7 @@ public class ProyectileCleaning : MonoBehaviour
 
     IEnumerator CleanProyectile()
     {
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(10f);
 
         if(this.gameObject != null)
 

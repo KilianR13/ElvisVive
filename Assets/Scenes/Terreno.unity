@@ -4783,15 +4783,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2521.1
+      value: 2646
       objectReference: {fileID: 0}
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 103.2
+      value: 132
       objectReference: {fileID: 0}
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 817.3
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4836,6 +4836,14 @@ PrefabInstance:
     - target: {fileID: 2520294918349893915, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: cooldownDodecafoniaAsignado
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361323748449392949, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.5314453
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361323748449392949, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.097119
       objectReference: {fileID: 0}
     - target: {fileID: 8509207315644293687, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_Name

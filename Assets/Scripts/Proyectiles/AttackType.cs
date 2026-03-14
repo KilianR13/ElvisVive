@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AttackType : MonoBehaviour
@@ -11,7 +12,7 @@ public class AttackType : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        StartCoroutine(NoteLifeSpan());
     }
 
     // Update is called once per frame
@@ -25,5 +26,11 @@ public class AttackType : MonoBehaviour
             
         }
         
+    }
+
+    IEnumerator NoteLifeSpan()
+    {
+        yield return new WaitForSecondsRealtime(10f);
+        Destroy(gameObject);
     }
 }
