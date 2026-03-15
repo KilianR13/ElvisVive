@@ -47,6 +47,10 @@ public class BossesStats : MonoBehaviour
             if (other.gameObject.GetComponent<AttackType>().leifmotif)
             {
                 player.GetComponent<PlayerStats>().TimerPotenciador = 5;
+
+                player.GetComponent<PlayerAttack>().soundHandler.GetComponent<AudioSource>().clip = player.GetComponent<PlayerAttack>().soundHandler.GetComponent<AlmacenamientoSonidos>().sonidosJugador[2];
+
+                player.GetComponent<PlayerAttack>().soundHandler.GetComponent<AudioSource>().Play();
             }
 
             if (other.gameObject.GetComponent<AttackType>().dodecafonico)

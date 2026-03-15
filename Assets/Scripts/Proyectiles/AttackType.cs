@@ -19,13 +19,6 @@ public class AttackType : MonoBehaviour
     void Update()
     {
 
-        if(dodecafonico)
-
-        if(leifmotif)
-        {
-            
-        }
-        
     }
 
     IEnumerator NoteLifeSpan()

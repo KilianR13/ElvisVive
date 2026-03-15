@@ -7,6 +7,9 @@ public class AlmacenamientoSonidos : MonoBehaviour
 {
 
     [Header ("aqui se ponen MP3 directamente")]
+
+    public List<AudioClip> sonidosJugador;
+    public List<AudioClip> sonidosPaquirrín;
     public List<AudioClip> sonidosCigala;
     public List<AudioClip> sonidosFari;
 

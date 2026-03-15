@@ -35,11 +35,14 @@ public class PlayerAttack : MonoBehaviour
 
     public float cooldownLeitmotifAsignado;
 
+    public GameObject soundHandler;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator = this.gameObject.GetComponent<Animator>();
         CC = GetComponent<CharacterController>();
+        soundHandler = GameObject.Find("SoundHandler");
     }
 
     // Update is called once per frame
@@ -62,6 +65,10 @@ public class PlayerAttack : MonoBehaviour
 
             objeto.transform.Rotate(90, this.gameObject.transform.rotation.eulerAngles.y,0);
 
+            this.gameObject.GetComponent<AudioSource>().clip = soundHandler.GetComponent<AlmacenamientoSonidos>().sonidosJugador[0];
+
+            this.gameObject.GetComponent<AudioSource>().Play();
+
             MoverAtaqueMetal(objeto);
 
             animationHandler(); // Placeholder?
@@ -82,6 +89,10 @@ public class PlayerAttack : MonoBehaviour
             Debug.Log($"rotacion {this.gameObject.transform.localRotation.x}, {this.gameObject.transform.localRotation.y}");
 
             objeto.transform.Rotate(90, this.gameObject.transform.rotation.eulerAngles.y,0);
+
+            this.gameObject.GetComponent<AudioSource>().clip = soundHandler.GetComponent<AlmacenamientoSonidos>().sonidosJugador[1];
+
+            this.gameObject.GetComponent<AudioSource>().Play();
 
             MoverAtaqueDodecafonico(objeto);
 
