@@ -23,7 +23,17 @@ public class AlmacenamientoSonidos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (this.gameObject.GetComponent<AudioSource>().clip == sonidosPaquirrín[0] ||
+            this.gameObject.GetComponent<AudioSource>().clip == sonidosCigala[0] ||
+            this.gameObject.GetComponent<AudioSource>().clip == sonidosFari[0])
+        {
+            this.gameObject.GetComponent<AudioSource>().loop = true;
+        }
+
+        else
+        {
+            this.gameObject.GetComponent<AudioSource>().loop = false;
+        }
     }
 
 

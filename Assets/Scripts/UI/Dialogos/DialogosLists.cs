@@ -53,6 +53,8 @@ public class DialogosLists : MonoBehaviour
 
         /*dialogos[1] = "dialogo 2";
         dialogosArrays[1] = dialogos[1].ToCharArray();*/
+
+            
     }
 
     // Update is called once per frame
@@ -96,6 +98,25 @@ public class DialogosLists : MonoBehaviour
         } 
     }
 
+    private void ContarLetrasDialogo(char[] dialogo)
+    {
+        float tiempoExtra;
+
+        for(int i = 0; i < dialogo.Length; i++)
+        {
+            if (dialogo[i] != ',')
+            {
+                tiempoDialogos += 0.4f;
+            }
+            else
+            {
+                tiempoDialogos += 0.2f;
+            }
+        }
+
+
+    }
+
     public IEnumerator Delay()
     {
         yield return new WaitForSeconds(delay);
@@ -116,12 +137,12 @@ public class DialogosLists : MonoBehaviour
 
                     if (dialogoArray.Length > 20)
                     {
-                        tiempoDialogos = 0.25f * dialogoArray.Length / 3;
+                        tiempoDialogos = 0.33f * dialogoArray.Length / 2;
                     }
 
                     if(dialogoArray.Length <= 20)
                     {
-                        tiempoDialogos = 0.3f * dialogoArray.Length / 2;
+                        tiempoDialogos = 0.4f * dialogoArray.Length / 1.5f;
                     }
                     
                     Debug.Log($"Multidialogo: {dialogoArray}");
@@ -147,18 +168,18 @@ public class DialogosLists : MonoBehaviour
             if (i == 0)
             {
                 AppendToString += dialogoArray[i].ToString();
-                yield return new WaitForSeconds(0.03f);
+                yield return new WaitForSeconds(0.033f);
             }
 
             else
             {
                 if(dialogoArray[i-1].ToString() == ",")
                 {
-                    yield return new WaitForSeconds(0.4f);
+                    yield return new WaitForSeconds(0.7f);
                 }
                 else
                 {
-                    yield return new WaitForSeconds(0.03f);
+                    yield return new WaitForSeconds(0.033f);
                 }
                     AppendToString += dialogoArray[i].ToString();
             }

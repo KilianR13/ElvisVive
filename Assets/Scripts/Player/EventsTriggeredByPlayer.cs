@@ -21,6 +21,14 @@ public class EventsTriggeredByPlayer : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
+        if (other.gameObject.CompareTag("Paquirrin"))
+        {
+            soundHandler.GetComponent<AudioSource>().clip = soundHandler.GetComponent<AlmacenamientoSonidos>().sonidosPaquirrín[0];
+
+            soundHandler.GetComponent<AudioSource>().Play();
+        }
+
         if (other.gameObject.CompareTag("Cigala"))
         {
             soundHandler.GetComponent<AudioSource>().clip = soundHandler.GetComponent<AlmacenamientoSonidos>().sonidosCigala[0];
@@ -40,12 +48,12 @@ public class EventsTriggeredByPlayer : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                other.gameObject.GetComponent<DialogoCorrespondiente>().
+                /*other.gameObject.GetComponent<DialogoCorrespondiente>().
                 dialogoCorrespondiente.gameObject.SetActive(true);
 
                 other.gameObject.GetComponent<DialogoCorrespondiente>().
                 dialogoCorrespondiente.gameObject.transform.parent.gameObject.
-                transform.GetComponent<DialogosLists>().activar = true;
+                transform.GetComponent<DialogosLists>().activar = true;*/
 
                 if (other.gameObject.name == "Alcalde")
                 {
@@ -77,6 +85,9 @@ public class EventsTriggeredByPlayer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NPC"))
         {
+
+            //maneja el cuadro de texto de interactuar
+
             other.gameObject.GetComponent<DialogoCorrespondiente>().
             dialogoCorrespondiente.gameObject.SetActive(false);
 

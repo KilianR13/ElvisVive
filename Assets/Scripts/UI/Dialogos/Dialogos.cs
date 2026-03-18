@@ -8,17 +8,25 @@ public class Dialogos : MonoBehaviour
 
     public List<int> dialogosSeleccionados;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void OnEnable()
-    {
-        this.gameObject.transform.parent.gameObject.GetComponent<DialogosLists>().dialogos = dialogos;
+    public string fullDialogue;
 
-        this.gameObject.transform.parent.gameObject.GetComponent<DialogosLists>().dialogosSeleccionados = dialogosSeleccionados;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        ConvertToFullDialogue();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private async void ConvertToFullDialogue()
+    {
+        for(int i = 0; i < dialogos.Count; i++)
+        {
+            fullDialogue += dialogos[i];
+        }
     }
 }

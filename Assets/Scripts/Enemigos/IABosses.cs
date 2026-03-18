@@ -41,6 +41,11 @@ public class IABosses : MonoBehaviour
 
         cooldownFari -= Time.deltaTime;
 
+        if (this.gameObject.CompareTag("Paquirrin") && this.gameObject.GetComponent<BossesStats>().vidas <= 0)
+        {
+            StartCoroutine(SecuenciaFinalPaquirrin());
+        }
+
 
         if (cigala)
         {
@@ -100,8 +105,26 @@ public class IABosses : MonoBehaviour
         soundHandler.GetComponent<AudioSource>().pitch = 1;
     }
 
+    IEnumerator SecuenciaFinalPaquirrin()
+    {
+        //soundHandler.GetComponent<AudioSource>().loop = false;
+
+        yield return new WaitForSeconds(0.5f);
+
+        soundHandler.GetComponent<AudioSource>().clip = soundHandler.GetComponent<AlmacenamientoSonidos>().sonidosPaquirrín[1];
+
+        soundHandler.GetComponent<AudioSource>().Play();
+
+        yield return new WaitForSeconds(2);
+
+        this.gameObject.SetActive(false);
+    }
+
     IEnumerator SecuenciaFinalCigala()
     {
+
+        //soundHandler.GetComponent<AudioSource>().loop = false;
+
         soundHandler.GetComponent<AudioSource>().clip = soundHandler.GetComponent<AlmacenamientoSonidos>().sonidosCigala[1];
 
         soundHandler.GetComponent<AudioSource>().Play();
