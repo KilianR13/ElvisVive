@@ -135,7 +135,7 @@ public class DialoguesSystem : MonoBehaviour
         if(dialogos != null) 
         {
 
-            for (int i = 0; i < dialogos.Count; i++) //si se quiere interrumpir el dialogo, esto va a dar un error, no deberia interferir en el juego
+            for (int i = 0; i < dialogos.Count && dialogos!= null; i++) //si se quiere interrumpir el dialogo, esto va a dar un error, no deberia interferir en el juego
             {
                 foreach (char c in dialogos[i])
                 {
@@ -144,9 +144,9 @@ public class DialoguesSystem : MonoBehaviour
                 cajaDeTexto.text += c.ToString();
                 }
 
-            await UniTask.Delay(TimeSpan.FromSeconds(delayForLetters / printSpeedMultipler + delayEntreDialogos));
+                await UniTask.Delay(TimeSpan.FromSeconds(delayForLetters / printSpeedMultipler + delayEntreDialogos));
 
-            cajaDeTexto.text = "";
+                cajaDeTexto.text = "";
             }
         }
         else
