@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DialoguesSystem : MonoBehaviour
@@ -20,18 +22,13 @@ public class DialoguesSystem : MonoBehaviour
 
     [Header ("Modificadores de los dialogos")]
 
-    [Range(0.01f, 2)]
+    [Range(0.01f, 5)]
 
     public float printSpeedMultipler;
 
     public float delayEntreDialogos;
 
     [Header ("Variables de control")]
-
-    [SerializeField] private string AppendToString;
-
-    public List<char[]> dialoguesToChar;
-
     private float delayForLetters;
 
     [Header ("Activadores")]
@@ -50,9 +47,6 @@ public class DialoguesSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        dialogosTemp = dialogos;
-
         if (ordenar)
         {
             OrderDialogues();
@@ -62,69 +56,34 @@ public class DialoguesSystem : MonoBehaviour
 
         if (activar)
         {
-            DialoguesToChar();
-
             PrintAll();
+
+            activar = !activar;
         }
     }
 
     private void OrderDialogues()
     {
-        for (int i = 0; i < dialogosSeleccionados.Count; i++)
+        for (int j = 0; j < dialogosSeleccionados.Count; j++)
         {
-            int espacio = dialogosSeleccionados[i];
+            dialogosTemp.Add(dialogos[j]);
+        }
 
-            dialogos[i] = dialogosTemp[espacio];
+        for(int i = 0; i < dialogosSeleccionados.Count; i++)
+        {
+            dialogos[i] = dialogosTemp[dialogosSeleccionados[i]];
         }
     }
 
-    //pasa todos los dialogos a una lista de arrays de chars
-
-    private void DialoguesToChar()
+    private async UniTask PrintDialogue(char[] dialogo)
     {
-
-        dialoguesToChar = new List<char[]>();
-
-        for (int i = 0; i < dialogos.Count; i++)
+        for(int k = 0; k < dialogo.Length; k++)
         {
-            
-            char[] dialogosCharArray = dialogos[i].ToCharArray();
+            Debug.LogWarning($"array dialogo: {dialogo[k]}");
 
-            Debug.Log($"{new string(dialogosCharArray)}");
+            await UniTask.Delay(TimeSpan.FromSeconds(WordPrintDelay(dialogo[k])));
 
-            dialoguesToChar[i] = dialogosCharArray;
-        }
-    }
-
-    private async void PrintAll()
-    {
-        //recorriendo la lista de dialogos (General List -> lists)
-
-        for (int i = 0; i < dialogos.Count; i++)
-        {
-            //recorriendo las listas, dentro de las listas aqui se obtienen todos los dialogos a arrays de chars
-
-            //lists -> char arrays in lists
-            for(int j = 0; j < dialoguesToChar[i].Length; j++)
-            {
-                PrintDialogue(dialoguesToChar[j]);
-
-                await UniTask.WaitForSeconds(delayForLetters + delayEntreDialogos);
-
-                cajaDeTexto.text = "";
-            }
-        }
-    }
-
-    private async void PrintDialogue(char[] dialogo)
-    {
-        for(int i = 0; i < dialogo.Length; i++)
-        {
-            char letra = dialogo[i];
-
-            WordPrintDelay(letra);
-
-            cajaDeTexto.text += letra; 
+            cajaDeTexto.text += dialogo[k].ToString();
         }
     }
 
@@ -139,22 +98,22 @@ public class DialoguesSystem : MonoBehaviour
         {
             case ',':
 
-                delayForLetters += 0.5f;
-                delay = 0.5f;
+                delayForLetters += 0.125f / printSpeedMultipler;
+                delay = 0.125f / printSpeedMultipler;
 
                 break;
 
             case '.':
 
-                delayForLetters += 0.8f;
-                delay = 0.8f;
+                delayForLetters += 0.2f / printSpeedMultipler;
+                delay = 0.2f / printSpeedMultipler;
 
                 break;
                 
             default:
 
-                delayForLetters += 0.2f;
-                delay = 0.2f;
+                delayForLetters += 0.05f / printSpeedMultipler;
+                delay = 0.05f / printSpeedMultipler;
 
                 break;
         }
@@ -168,5 +127,32 @@ public class DialoguesSystem : MonoBehaviour
                 '.' => 0.8f,
                 _ => 0.2f,
             };*/
+    }
+
+    private async UniTaskVoid PrintAll()
+    {
+
+        if(dialogos != null) 
+        {
+
+            for (int i = 0; i < dialogos.Count; i++) //si se quiere interrumpir el dialogo, esto va a dar un error, no deberia interferir en el juego
+            {
+                foreach (char c in dialogos[i])
+                {
+                await UniTask.Delay(TimeSpan.FromSeconds(WordPrintDelay(c)));
+
+                cajaDeTexto.text += c.ToString();
+                }
+
+            await UniTask.Delay(TimeSpan.FromSeconds(delayForLetters / printSpeedMultipler + delayEntreDialogos));
+
+            cajaDeTexto.text = "";
+            }
+        }
+        else
+        {
+            return;
+        }    
+        
     }
 }

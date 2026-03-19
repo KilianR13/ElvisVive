@@ -1,22 +1,51 @@
+using TMPro;
 using UnityEngine;
 
 public class EventsTriggeredByPlayer : MonoBehaviour
 {
 
-    public GameObject soundHandler;
+    public GameObject soundHandler, canvasDialogos;
 
     public bool TriggerAlcalde, TriggerSergey, TriggerLulu, TriggerParsifal;
+
+    public bool EstaEnDialogo;
+
+    public bool PressedQ;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         soundHandler = GameObject.Find("SoundHandler");
+
+        canvasDialogos = GameObject.Find("CanvasDialogos");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        FastDialogues();
+
+        if (PressedQ)
+        {
+            canvasDialogos.GetComponent<DialoguesSystem>().printSpeedMultipler = 5;
+        }
+        else
+        {
+            canvasDialogos.GetComponent<DialoguesSystem>().printSpeedMultipler = 1;
+        }
+    }
+
+    private void FastDialogues()
+    {
+        if (Input.GetKey(KeyCode.Q))
+        {
+            PressedQ = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            PressedQ = false;
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -46,7 +75,7 @@ public class EventsTriggeredByPlayer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NPC"))
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.E) && !EstaEnDialogo)
             {
                 /*other.gameObject.GetComponent<DialogoCorrespondiente>().
                 dialogoCorrespondiente.gameObject.SetActive(true);
@@ -57,22 +86,38 @@ public class EventsTriggeredByPlayer : MonoBehaviour
 
                 if (other.gameObject.name == "Alcalde")
                 {
+                    other.gameObject.GetComponent<DialogoCorrespondiente>().dialogoCorrespondiente.gameObject.SetActive(true);
+                    canvasDialogos.GetComponent<DialoguesSystem>().activar = true;
                     TriggerAlcalde = true;
+
+                    EstaEnDialogo = true;
                 }
 
                 if (other.gameObject.name == "Sergey")
                 {
                     TriggerSergey = true;
+                    other.gameObject.GetComponent<DialogoCorrespondiente>().dialogoCorrespondiente.gameObject.SetActive(true);
+                    canvasDialogos.GetComponent<DialoguesSystem>().activar = true;
+
+                    EstaEnDialogo = true;
                 }
 
                 if (other.gameObject.name == "Lulu")
                 {
                     TriggerLulu = true;
+                    other.gameObject.GetComponent<DialogoCorrespondiente>().dialogoCorrespondiente.gameObject.SetActive(true);
+                    canvasDialogos.GetComponent<DialoguesSystem>().activar = true;
+
+                    EstaEnDialogo = true;
                 }
 
                 if (other.gameObject.name == "Parsifal")
                 {
                     TriggerParsifal = true;
+                    other.gameObject.GetComponent<DialogoCorrespondiente>().dialogoCorrespondiente.gameObject.SetActive(true);
+                    canvasDialogos.GetComponent<DialoguesSystem>().activar = true;
+
+                    EstaEnDialogo = true;
                 }
 
             }
@@ -85,6 +130,10 @@ public class EventsTriggeredByPlayer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NPC"))
         {
+
+            canvasDialogos.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "";
+            EstaEnDialogo = false;
+            other.gameObject.GetComponent<DialogoCorrespondiente>().dialogoCorrespondiente.gameObject.SetActive(false);
 
             //maneja el cuadro de texto de interactuar
 
