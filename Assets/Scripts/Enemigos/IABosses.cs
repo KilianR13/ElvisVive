@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
@@ -19,9 +20,14 @@ public class IABosses : MonoBehaviour
 
     [SerializeField] private float intensityVariation;
 
+    private Animator animator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        animator = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
+        
        player = GameObject.Find("Player");
 
        soundHandler = GameObject.Find("SoundHandler");
@@ -34,6 +40,17 @@ public class IABosses : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        animator.SetFloat("Vida", this.gameObject.GetComponent<BossesStats>().vidas);
+
+        animator.SetTrigger("Derrota");
+
+        UnityEngine.Vector3 posicionJugador = new UnityEngine.Vector3 (player.transform.position.x, this.transform.position.y, player.transform.position.z); 
+
+        if (this.gameObject.GetComponent<LanzarProyectil>().playerInRange)
+        {
+            this.gameObject.transform.LookAt(posicionJugador);
+        }  
 
         intensityVariation = Mathf.PingPong(Time.time * 3, 1f);
 

@@ -72,9 +72,8 @@ public class IndicatorLogic : MonoBehaviour
             if (this.gameObject.GetComponent<Objetivos>().objetivos[6].GetComponent<BossesStats>().vidas <= 0)
             {
                 this.gameObject.GetComponent<ArrowLookAtObjective>().objetivo = this.gameObject.GetComponent<Objetivos>().objetivos[7];
-            }
-        
 
-        
+                alreadyBeatenFari = true;
+            }
     }
 }
