@@ -10484,7 +10484,7 @@ GameObject:
   - component: {fileID: 670509571}
   - component: {fileID: 670509570}
   m_Layer: 7
-  m_Name: El Fari PlaceHolder
+  m_Name: El Fari
   m_TagString: Fari
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
