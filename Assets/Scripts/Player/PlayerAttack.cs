@@ -1,12 +1,8 @@
 using System.Collections;
-using System.Numerics;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -26,12 +22,12 @@ public class PlayerAttack : MonoBehaviour
     public float cooldownMetalAsignado;
 
     [Header ("No tocar")]
-    [SerializeField] private float cooldownDodecafonia;
+    public float cooldownDodecafonia;
 
     public float cooldownDodecafoniaAsignado;
 
     [Header ("No tocar")]
-    [SerializeField] private float cooldownLeitmotif;
+    public float cooldownLeitmotif;
 
     public float cooldownLeitmotifAsignado;
 

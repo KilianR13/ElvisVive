@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using TMPro;
-using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 
 public class SimpleDialogues : MonoBehaviour

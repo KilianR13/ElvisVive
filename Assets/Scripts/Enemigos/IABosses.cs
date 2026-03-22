@@ -152,6 +152,8 @@ public class IABosses : MonoBehaviour
 
         player.GetComponent<PlayerStats>().health = 12;
 
+        player.GetComponent<PlayerMovement>().lensDistortion.intensity.value = 0f;
+
         this.gameObject.SetActive(false);
     }
 
@@ -162,8 +164,6 @@ public class IABosses : MonoBehaviour
             cooldownCigala = tiempoCooldownCigalaAsignado;
 
             StartCoroutine(DistortMusic());
-
-            player.GetComponent<PlayerMovement>().lensDistortion.intensity.value = 0;
         }
 
          if (this.gameObject.GetComponent<BossesStats>().vidas <= 0 && !activo)
