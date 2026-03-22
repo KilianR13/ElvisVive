@@ -48,9 +48,9 @@ public class BossesStats : MonoBehaviour
             {
                 player.GetComponent<PlayerStats>().TimerPotenciador = 5;
 
-                player.GetComponent<PlayerAttack>().soundHandler.GetComponent<AudioSource>().clip = player.GetComponent<PlayerAttack>().soundHandler.GetComponent<AlmacenamientoSonidos>().sonidosJugador[2];
+                player.GetComponent<PlayerAttack>().soundHandler.transform.GetChild(0).gameObject.GetComponent<AudioSource>().clip = player.GetComponent<PlayerAttack>().soundHandler.GetComponent<AlmacenamientoSonidos>().sonidosJugador[2];
 
-                player.GetComponent<PlayerAttack>().soundHandler.GetComponent<AudioSource>().Play();
+                player.GetComponent<PlayerAttack>().soundHandler.transform.GetChild(0).gameObject.GetComponent<AudioSource>().Play();
             }
 
             if (other.gameObject.GetComponent<AttackType>().dodecafonico)

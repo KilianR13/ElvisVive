@@ -8630,7 +8630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 48526a3350bf7f148b1154e51f2ddaef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.57
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 48526a3350bf7f148b1154e51f2ddaef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10484,7 +10484,7 @@ GameObject:
   - component: {fileID: 670509571}
   - component: {fileID: 670509570}
   m_Layer: 7
-  m_Name: El Fari
+  m_Name: El Fari PlaceHolder
   m_TagString: Fari
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10648,7 +10648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 649c59bf765e9fd40824c22afefee2b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossesStats
-  vidas: 30
+  vidas: 20
   confuso: 0
   TimerConfuso: 0
   TimerConfusoAsignado: 5
@@ -10716,9 +10716,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.9851074
-  m_Height: 2.4514618
+  m_Height: 2.4577255
   m_Direction: 1
-  m_Center: {x: -0.00024414062, y: 0.7576187, z: 0}
+  m_Center: {x: -0.00024414062, y: -2.7499504, z: 0}
 --- !u!23 &670509577
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10785,7 +10785,7 @@ Transform:
   m_GameObject: {fileID: 670509568}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2711.3, y: 74.38, z: 2963.84}
+  m_LocalPosition: {x: 2711.3, y: 83.5, z: 2963.84}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -14959,7 +14959,7 @@ GameObject:
   - component: {fileID: 994362539}
   - component: {fileID: 994362538}
   m_Layer: 7
-  m_Name: El Cigala
+  m_Name: El Cigala PlaceHolder
   m_TagString: Cigala
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17187,135 +17187,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7215789102726134100, guid: 1bcacddb37e18a54ead6483766e73d46, type: 3}
   m_PrefabInstance: {fileID: 1106155152}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1106261604
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1106261605}
-  - component: {fileID: 1106261606}
-  m_Layer: 0
-  m_Name: audioSecundario
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1106261605
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106261604}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1571904546}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1106261606
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106261604}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &1114393938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23133,8 +23004,7 @@ Transform:
   m_LocalPosition: {x: 2344.271, y: 166, z: 719.2638}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1106261605}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1571904547
@@ -23160,8 +23030,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 04150fb21f8f77a4eb77892879e1c33d, type: 3}
   - {fileID: 8300000, guid: c38e532e63797624f82c232c4144168a, type: 3}
   sonidosFari:
-  - {fileID: 8300000, guid: 7e1ef6802745e444cb67ad35ad0d047a, type: 3}
-  - {fileID: 8300000, guid: ec96e4bccc436384a8ca9b7272c7bdb1, type: 3}
+  - {fileID: 8300000, guid: be8beb457293b3a42a04ab9b9df8e305, type: 3}
+  - {fileID: 8300000, guid: 9edfc024c6e7a304189f0c2d4f413c0a, type: 3}
 --- !u!1001 &1576602870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28270,7 +28140,8 @@ MonoBehaviour:
   - "El Fari tiene atrapado a Elvis, necesitar\xE1s coraje para derrotarlo"
   - "Tu fuerza m\xFAsical y mis leitmotifs posiblemente le puedan hacer frente al
     Fari "
-  - 
+  - "Tu fuerza m\xFAsical y mis leitmotifs posiblemente le puedan hacer frente al
+    Fari "
   dialogosSeleccionados: 00000000010000000200000003000000
   fullDialogue: 
   canvasDialogos: {fileID: 538593495}
@@ -31370,7 +31241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -55.745, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.36, y: 3.5}
+  m_AnchoredPosition: {x: 0.36, y: 3.01}
   m_SizeDelta: {x: 10, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2113321141
@@ -32574,7 +32445,7 @@ GameObject:
   - component: {fileID: 8482867409747129042}
   - component: {fileID: 8482867409747129043}
   m_Layer: 7
-  m_Name: Paquirrin
+  m_Name: Paquirrin PlaceHolder
   m_TagString: Paquirrin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41214,7 +41085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 2.4999998
       objectReference: {fileID: 0}
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalScale.y
@@ -41222,7 +41093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.5
+      value: 2.4999998
       objectReference: {fileID: 0}
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41230,7 +41101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 97.33
+      value: 96.8
       objectReference: {fileID: 0}
     - target: {fileID: 2236043902250407700, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -41294,7 +41165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5733554951063769213, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: hasLeit
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5733554951063769213, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: hasDodec
@@ -47336,6 +47207,7 @@ SceneRoots:
   - {fileID: 670509579}
   - {fileID: 1021847965}
   - {fileID: 1571904546}
+  - {fileID: 5040198505296568859}
   - {fileID: 2016096882953369110}
   - {fileID: 2050300115}
   - {fileID: 911172764}
@@ -47343,5 +47215,4 @@ SceneRoots:
   - {fileID: 538593500}
   - {fileID: 3964827619139716287}
   - {fileID: 543450651869165475}
-  - {fileID: 5040198505296568859}
   - {fileID: 996176797}

@@ -62,8 +62,19 @@ public class LanzarProyectil : MonoBehaviour
 
                     GameObject proyectil = Instantiate(proyectiles[randomInt]);
 
+                    if (this.gameObject.CompareTag("Fari"))
+                    {
+                        proyectil.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 1,  this.gameObject.transform.position.z);
+
+                    }
+
+                else
+                {
                     proyectil.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 1,  this.gameObject.transform.position.z);
 
+                }
+
+                    
                     if (this.gameObject.GetComponent<BossesStats>().confuso)
                     {
                         float x = UnityEngine.Random.Range(0,360);

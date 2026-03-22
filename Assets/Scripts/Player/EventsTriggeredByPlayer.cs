@@ -65,6 +65,13 @@ public class EventsTriggeredByPlayer : MonoBehaviour
             soundHandler.GetComponent<AudioSource>().Play();
         }
 
+        if (other.gameObject.CompareTag("Fari"))
+        {
+            soundHandler.GetComponent<AudioSource>().clip = soundHandler.GetComponent<AlmacenamientoSonidos>().sonidosFari[0];
+
+            soundHandler.GetComponent<AudioSource>().Play();
+        }
+
         if (other.gameObject.CompareTag("NPC"))
         {
             other.gameObject.transform.GetChild(0).gameObject.SetActive(true);

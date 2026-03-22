@@ -134,6 +134,8 @@ public class IABosses : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
+        player.GetComponent<PlayerStats>().health = 12;
+
         this.gameObject.SetActive(false);
     }
 
@@ -148,14 +150,40 @@ public class IABosses : MonoBehaviour
 
         yield return new WaitForSeconds(10);
 
+        player.GetComponent<PlayerStats>().health = 12;
+
         this.gameObject.SetActive(false);
     }
 
     private void FariIA()
     {
-        if (cooldownFari < 0)
+        if (this.gameObject.GetComponent<BossesStats>().confuso)
         {
-            
+            cooldownCigala = tiempoCooldownCigalaAsignado;
+
+            StartCoroutine(DistortMusic());
+
+            player.GetComponent<PlayerMovement>().lensDistortion.intensity.value = 0;
         }
+
+         if (this.gameObject.GetComponent<BossesStats>().vidas <= 0 && !activo)
+        {
+            activo = true;
+
+            StartCoroutine(SecuenciaFinalFari());
+        }
+    }
+
+    private IEnumerator SecuenciaFinalFari()
+    {
+       soundHandler.GetComponent<AudioSource>().clip = soundHandler.GetComponent<AlmacenamientoSonidos>().sonidosFari[1];
+
+        soundHandler.GetComponent<AudioSource>().Play();
+
+        yield return new WaitForSeconds(2);
+
+        player.GetComponent<PlayerStats>().health = 12;
+
+        this.gameObject.SetActive(false);
     }
 }
