@@ -16162,6 +16162,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7215789102726134100, guid: 1bcacddb37e18a54ead6483766e73d46, type: 3}
   m_PrefabInstance: {fileID: 1052541784}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1052705196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3823046014224751059, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+  m_PrefabInstance: {fileID: 5040198505296568859}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1052705202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052705196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e87fb38d20e16d458f53a24921d27fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraGetValues
+  config: {fileID: 0}
+  ThisAxisController: {fileID: 0}
+  player: {fileID: 1892531942570847046}
 --- !u!1001 &1053229686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28270,7 +28290,7 @@ MonoBehaviour:
   - "El Fari tiene atrapado a Elvis, necesitar\xE1s coraje para derrotarlo"
   - "Tu fuerza m\xFAsical y mis leitmotifs posiblemente le puedan hacer frente al
     Fari "
-  - 
+  - '[Con la E disparas leitmotifs]'
   dialogosSeleccionados: 00000000010000000200000003000000
   fullDialogue: 
   canvasDialogos: {fileID: 538593495}
@@ -35943,6 +35963,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1892531942570847069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892531942570847046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4dc4e36478caa147b69b4249922a14d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bruh
+  valor: 0
 --- !u!1 &1923224535686134810
 GameObject:
   m_ObjectHideFlags: 0
@@ -41294,7 +41327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5733554951063769213, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: hasLeit
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5733554951063769213, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       propertyPath: hasDodec
@@ -41324,6 +41357,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9205643715110509681, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      propertyPath: m_ControllerManager.Controllers.Array.data[0].Input.Gain
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9205643715110509681, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      propertyPath: m_ControllerManager.Controllers.Array.data[1].Input.Gain
+      value: -15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -41340,6 +41381,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8509207315644293687, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1892531942570847062}
+    - targetCorrespondingSourceObject: {fileID: 8509207315644293687, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1892531942570847069}
+    - targetCorrespondingSourceObject: {fileID: 3823046014224751059, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1052705202}
   m_SourcePrefab: {fileID: 100100000, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
 --- !u!4 &5048025440651423386
 Transform:

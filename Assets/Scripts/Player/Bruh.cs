@@ -1,10 +1,9 @@
 using UnityEngine;
-using VicGenLib.Canvas;
 
-public class CameraFollow : MonoBehaviour
+public class Bruh : MonoBehaviour
 {
 
-    public GameObject cameraFollow;
+    public float valor;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,6 +14,15 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.gameObject.transform.position = cameraFollow.transform.position;
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            valor++;
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            valor--;
+        }
+
     }
 }

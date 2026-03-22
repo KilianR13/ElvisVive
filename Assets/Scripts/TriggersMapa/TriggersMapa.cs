@@ -36,7 +36,7 @@ public class TriggersMapa : MonoBehaviour
             Fari.GetComponent<BossesStats>().vidas <= 0 && other.gameObject.CompareTag("Player"))
         {
 
-        SceneManager.LoadScene("EndScreen");
+        SceneManager.LoadScene(3);
 
         }
         else

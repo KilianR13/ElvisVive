@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
     [HideInInspector] // Esto solo oculta la variable "health" en el inspector. Más cómodo.
     public int health;
-    [SerializeField] private int maxHealth; 
+    public int maxHealth; 
 
     public bool potenciado;
 
@@ -18,11 +19,14 @@ public class PlayerStats : MonoBehaviour
 
     public bool hasDodec;
 
+    public GameObject HUD;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         health = maxHealth;
         PlayerHUD.UpdateHealthbar(health, maxHealth);
+        HUD = GameObject.Find("HUD");
     }
 
     // Update is called once per frame
@@ -69,6 +73,6 @@ public class PlayerStats : MonoBehaviour
     // Placeholder
     public void PlayerDie()
     {
-        
+        SceneManager.LoadScene(2);
     }
 }
