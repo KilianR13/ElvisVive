@@ -74,6 +74,7 @@ public class EventsTriggeredByPlayer : MonoBehaviour
 
         if (other.gameObject.CompareTag("NPC"))
         {
+
             other.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
@@ -82,6 +83,8 @@ public class EventsTriggeredByPlayer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NPC"))
         {
+            canvasDialogos.GetComponent<DialoguesSystem>().cancelDialogue = false;
+
             if (Input.GetKey(KeyCode.E) && !EstaEnDialogo)
             {
                 /*other.gameObject.GetComponent<DialogoCorrespondiente>().
@@ -146,6 +149,8 @@ public class EventsTriggeredByPlayer : MonoBehaviour
 
             other.gameObject.GetComponent<DialogoCorrespondiente>().
             dialogoCorrespondiente.gameObject.SetActive(false);
+
+            canvasDialogos.GetComponent<DialoguesSystem>().cancelDialogue = true;
 
             other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }

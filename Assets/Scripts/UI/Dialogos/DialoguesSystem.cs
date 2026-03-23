@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using TMPro;
 using Unity.VisualScripting;
@@ -8,6 +9,7 @@ using UnityEngine;
 public class DialoguesSystem : MonoBehaviour
 {
     public static DialoguesSystem instance;
+    private CancellationTokenSource cancellationToken;
 
     [Header ("Dialogos y cuales son los elegidos")]
     public List<string> dialogos;
@@ -32,7 +34,7 @@ public class DialoguesSystem : MonoBehaviour
     private float delayForLetters;
 
     [Header ("Activadores")]
-    public bool activar;
+    public bool activar, cancelDialogue;
 
     [Header ("Donde poner el texto")]
 
@@ -56,9 +58,21 @@ public class DialoguesSystem : MonoBehaviour
 
         if (activar)
         {
-            PrintAll();
+            _ = PrintAll();
 
             activar = !activar;
+        }
+
+        if (cancelDialogue)
+        {
+            cancellationToken.Cancel();
+
+            cajaDeTexto.text = "";
+        }
+
+        else
+        {
+            
         }
     }
 
@@ -134,12 +148,23 @@ public class DialoguesSystem : MonoBehaviour
 
         if(dialogos != null) 
         {
-
-            for (int i = 0; i < dialogos.Count && dialogos!= null; i++) //si se quiere interrumpir el dialogo, esto va a dar un error, no deberia interferir en el juego
+            for (int i = 0; i < dialogos.Count; i++) //si se quiere interrumpir el dialogo, esto va a dar un error, no deberia interferir en el juego
             {
+                
                 foreach (char c in dialogos[i])
                 {
-                await UniTask.Delay(TimeSpan.FromSeconds(WordPrintDelay(c)));
+
+                cancellationToken = new CancellationTokenSource();
+
+
+                if (cancelDialogue)
+                {
+                    cajaDeTexto.text = "";
+                    
+                    return;  
+                }
+
+                await UniTask.Delay(TimeSpan.FromSeconds(WordPrintDelay(c)), cancellationToken: cancellationToken.Token);
 
                 cajaDeTexto.text += c.ToString();
                 }

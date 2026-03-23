@@ -12,7 +12,7 @@ public class Dialogos : MonoBehaviour
 
     public GameObject canvasDialogos;
 
-    public bool alreadyTransfered;
+    public bool alreadyTransfered, cancelDialogue;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,15 +30,19 @@ public class Dialogos : MonoBehaviour
 
             canvasDialogos.GetComponent<DialoguesSystem>().dialogosSeleccionados = dialogosSeleccionados;
 
+            cancelDialogue = false;
+
             alreadyTransfered = true;
         }
     }
 
     void OnDisable()
     {
-        canvasDialogos.GetComponent<DialoguesSystem>().dialogos = null;
+        canvasDialogos.GetComponent<DialoguesSystem>().dialogos = new List<string>{""};
 
-        canvasDialogos.GetComponent<DialoguesSystem>().dialogosSeleccionados = null;
+        canvasDialogos.GetComponent<DialoguesSystem>().dialogosSeleccionados = new List<int>{0};
+
+        cancelDialogue = true;
 
         alreadyTransfered = false;
     }
