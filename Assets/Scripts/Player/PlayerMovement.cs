@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
         MovementPenalty =  (((float)lensDistortion.intensity * -1) /2) + 1;
 
-        Debug.Log($"movement penalty {MovementPenalty}");
+        // Debug.Log($"movement penalty {MovementPenalty}");
     }
 
     private void HandlePlayerMovementAndRotation()

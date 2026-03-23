@@ -16470,8 +16470,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraGetValues
   config: {fileID: 0}
-  ThisAxisController: {fileID: 0}
+  ThisAxisController: {fileID: 1052705204}
   player: {fileID: 1892531942570847046}
+--- !u!114 &1052705204 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9205643715110509681, guid: 66f94cc03fa322444b1e1a2d0e312c1b, type: 3}
+  m_PrefabInstance: {fileID: 5040198505296568859}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052705196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89875cdc57c54474a8a74efd9b2a3b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineInputAxisController
 --- !u!1001 &1053229686
 PrefabInstance:
   m_ObjectHideFlags: 0

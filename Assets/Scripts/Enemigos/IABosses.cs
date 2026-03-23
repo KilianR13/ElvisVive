@@ -134,7 +134,7 @@ public class IABosses : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
-        player.GetComponent<PlayerStats>().health = 12;
+        CurarJugador();
 
         this.gameObject.SetActive(false);
     }
@@ -150,7 +150,7 @@ public class IABosses : MonoBehaviour
 
         yield return new WaitForSeconds(10);
 
-        player.GetComponent<PlayerStats>().health = 12;
+        CurarJugador();
 
         player.GetComponent<PlayerMovement>().lensDistortion.intensity.value = 0f;
 
@@ -182,8 +182,14 @@ public class IABosses : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
-        player.GetComponent<PlayerStats>().health = 12;
+        CurarJugador();
 
         this.gameObject.SetActive(false);
+    }
+
+    private void CurarJugador()
+    {
+        player.GetComponent<PlayerStats>().health = player.GetComponent<PlayerStats>().maxHealth;
+        player.GetComponent<PlayerStats>().UpdateHealth();
     }
 }

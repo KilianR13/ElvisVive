@@ -7,6 +7,7 @@ public class MainMenuHandler : MonoBehaviour
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject optionsMenu;
+    private bool configActiva;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,6 +15,22 @@ public class MainMenuHandler : MonoBehaviour
         mainMenu.SetActive(true);
         loadingScreen.SetActive(false);
         optionsMenu.SetActive(false);
+        configActiva = false;
+    }
+
+    public void Opciones()
+    {
+        configActiva = !configActiva;
+
+        if (configActiva == false)
+        {
+            optionsMenu.SetActive(false);
+        }
+
+        else
+        {
+            optionsMenu.SetActive(true);
+        }
     }
 
     public void QuitGame()

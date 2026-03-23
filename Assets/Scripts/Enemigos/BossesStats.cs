@@ -39,7 +39,7 @@ public class BossesStats : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 
-        Debug.Log("TriggerEnter Boss");
+        // Debug.Log("TriggerEnter Boss");
 
         if(other.gameObject.CompareTag("Onda"))
         {

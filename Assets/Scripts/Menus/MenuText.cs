@@ -5,17 +5,20 @@ using UnityEngine;
 public class MenuText : MonoBehaviour
 {
 
-    public GameObject configValues;
+    public ConfigValues configValues;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        configValues = GameObject.Find("ConfigValues");
+        if (!configValues)
+        {
+            configValues = GameObject.Find("ConfigValues").GetComponent<ConfigValues>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.gameObject.GetComponent<TextMeshProUGUI>().text = $"Sensitivity {Math.Round(configValues.GetComponent<ConfigValues>().sensitivity, 2)}";
+        gameObject.GetComponent<TextMeshProUGUI>().text = $"Sensitivity {Math.Round(configValues.sensitivity, 2)}";
     }
 }

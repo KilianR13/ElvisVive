@@ -6,20 +6,18 @@ public class SliderValues : MonoBehaviour
 
     public float sensitivityValue;
 
-    public GameObject sliderSensitivity;
+    public Slider sliderSensitivity;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        sliderSensitivity = GameObject.Find("SliderSen");
+        sliderSensitivity.onValueChanged.AddListener (delegate {ValueChangeCheck ();});
+        sensitivityValue = sliderSensitivity.value;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ValueChangeCheck()
     {
-        if (sliderSensitivity != null)
-        {
-            sensitivityValue = sliderSensitivity.GetComponent<Slider>().value;
-        }
+        sensitivityValue = sliderSensitivity.value;
     }
+
 }

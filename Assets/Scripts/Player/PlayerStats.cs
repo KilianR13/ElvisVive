@@ -75,4 +75,9 @@ public class PlayerStats : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+
+    public void UpdateHealth()
+    {
+        PlayerHUD.UpdateHealthbar(health, maxHealth);
+    }
 }

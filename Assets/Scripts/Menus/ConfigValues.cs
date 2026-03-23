@@ -20,14 +20,10 @@ public class ConfigValues : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
-        sensitivity = this.gameObject.GetComponent<SliderValues>().sensitivityValue + 0.1f;
+        sensitivity = gameObject.GetComponent<SliderValues>().sensitivityValue;
     }
 }

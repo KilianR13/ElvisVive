@@ -6,6 +6,7 @@ public class CameraGetValues : MonoBehaviour
 {
 
     public GameObject config;
+    private bool configFound;
 
     public CinemachineInputAxisController ThisAxisController;
 
@@ -19,21 +20,25 @@ public class CameraGetValues : MonoBehaviour
         if (GameObject.Find("ConfigValues") != null)
         {
             config = GameObject.Find("ConfigValues");
+            configFound = true;
+        }
+        else
+        {
+            configFound = false;
         }
 
-        ThisAxisController = this.gameObject.GetComponent<CinemachineInputAxisController>();
+        Xsens = ThisAxisController.Controllers[0].Input.Gain;
 
-        Xsens = this.gameObject.GetComponent<CinemachineInputAxisController>().Controllers[0].Input.Gain;
-
-        Ysens = this.gameObject.GetComponent<CinemachineInputAxisController>().Controllers[1].Input.Gain;
+        Ysens = ThisAxisController.Controllers[1].Input.Gain;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!configFound) return;
         //primer apartado, Gain
-        this.gameObject.GetComponent<CinemachineInputAxisController>().Controllers[0].Input.Gain = Xsens * config.GetComponent<ConfigValues>().sensitivity;
-        this.gameObject.GetComponent<CinemachineInputAxisController>().Controllers[1].Input.Gain = Ysens * config.GetComponent<ConfigValues>().sensitivity;
+        ThisAxisController.Controllers[0].Input.Gain = Xsens * config.GetComponent<ConfigValues>().sensitivity;
+        ThisAxisController.Controllers[1].Input.Gain = Ysens * config.GetComponent<ConfigValues>().sensitivity;
         //config.GetComponent<ConfigValues>().sensitivity;
     }
 }
