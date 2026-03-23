@@ -19,6 +19,6 @@ public class MenuText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<TextMeshProUGUI>().text = $"Sensitivity {Math.Round(configValues.sensitivity, 2)}";
+        gameObject.GetComponent<TextMeshProUGUI>().text = $"{Math.Round(configValues.sensitivity, 2)}";
     }
 }
