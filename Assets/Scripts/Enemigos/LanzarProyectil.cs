@@ -98,7 +98,7 @@ public class LanzarProyectil : MonoBehaviour
 
     async UniTask MoverProyectil(GameObject proyectil)
     {
-        while (true)
+        while (true && proyectil != null)
         {
             
             proyectil.transform.Translate(60 * Time.deltaTime * Vector3.forward);

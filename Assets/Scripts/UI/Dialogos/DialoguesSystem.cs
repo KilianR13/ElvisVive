@@ -18,6 +18,8 @@ public class DialoguesSystem : MonoBehaviour
 
     public List<int> dialogosSeleccionados;
 
+    public string characterName;
+
     [Header ("En el caso de que los dialogos vengan desordenados")]
 
     public bool ordenar;
@@ -40,10 +42,14 @@ public class DialoguesSystem : MonoBehaviour
 
     public TextMeshProUGUI cajaDeTexto;
 
+    public TextMeshProUGUI nombrePersonajeHablando;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         instance = this;
+        cajaDeTexto.text = "";
+        nombrePersonajeHablando.text = "";
     }
 
     // Update is called once per frame
@@ -68,6 +74,7 @@ public class DialoguesSystem : MonoBehaviour
             cancellationToken.Cancel();
 
             cajaDeTexto.text = "";
+            nombrePersonajeHablando.text = "";
         }
 
         else
@@ -145,6 +152,7 @@ public class DialoguesSystem : MonoBehaviour
 
     private async UniTaskVoid PrintAll()
     {
+        nombrePersonajeHablando.text = characterName;
 
         if(dialogos != null) 
         {
@@ -172,12 +180,18 @@ public class DialoguesSystem : MonoBehaviour
                 await UniTask.Delay(TimeSpan.FromSeconds(delayForLetters / printSpeedMultipler + delayEntreDialogos));
 
                 cajaDeTexto.text = "";
+
+                if (i == dialogos.Count - 1)
+                {
+                    cajaDeTexto.transform.parent.gameObject.SetActive(false);
+                }
             }
         }
         else
         {
             return;
-        }    
+        }
+        // if (dialogos[dialogos.Count])    
         
     }
 }

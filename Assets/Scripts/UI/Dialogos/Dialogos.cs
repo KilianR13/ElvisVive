@@ -10,6 +10,8 @@ public class Dialogos : MonoBehaviour
 
     public string fullDialogue;
 
+    public string characterName;
+
     public GameObject canvasDialogos;
 
     public bool alreadyTransfered, cancelDialogue;
@@ -29,6 +31,8 @@ public class Dialogos : MonoBehaviour
             canvasDialogos.GetComponent<DialoguesSystem>().dialogos = dialogos;
 
             canvasDialogos.GetComponent<DialoguesSystem>().dialogosSeleccionados = dialogosSeleccionados;
+
+            canvasDialogos.GetComponent<DialoguesSystem>().characterName = characterName;
 
             cancelDialogue = false;
 

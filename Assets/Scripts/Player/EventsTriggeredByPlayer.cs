@@ -4,7 +4,7 @@ using UnityEngine;
 public class EventsTriggeredByPlayer : MonoBehaviour
 {
 
-    public GameObject soundHandler, canvasDialogos;
+    public GameObject soundHandler, canvasDialogos, dialogueBox;
 
     public bool TriggerAlcalde, TriggerSergey, TriggerLulu, TriggerParsifal;
 
@@ -18,6 +18,8 @@ public class EventsTriggeredByPlayer : MonoBehaviour
         soundHandler = GameObject.Find("SoundHandler");
 
         canvasDialogos = GameObject.Find("CanvasDialogos");
+
+        dialogueBox.SetActive(false);
     }
 
     // Update is called once per frame
@@ -87,12 +89,7 @@ public class EventsTriggeredByPlayer : MonoBehaviour
 
             if (Input.GetKey(KeyCode.E) && !EstaEnDialogo)
             {
-                /*other.gameObject.GetComponent<DialogoCorrespondiente>().
-                dialogoCorrespondiente.gameObject.SetActive(true);
-
-                other.gameObject.GetComponent<DialogoCorrespondiente>().
-                dialogoCorrespondiente.gameObject.transform.parent.gameObject.
-                transform.GetComponent<DialogosLists>().activar = true;*/
+                dialogueBox.SetActive(true);
 
                 if (other.gameObject.name == "Alcalde")
                 {
@@ -141,9 +138,10 @@ public class EventsTriggeredByPlayer : MonoBehaviour
         if (other.gameObject.CompareTag("NPC"))
         {
 
-            canvasDialogos.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "";
+            dialogueBox.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "";
             EstaEnDialogo = false;
             other.gameObject.GetComponent<DialogoCorrespondiente>().dialogoCorrespondiente.gameObject.SetActive(false);
+            dialogueBox.SetActive(false);
 
             //maneja el cuadro de texto de interactuar
 

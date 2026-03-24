@@ -23,18 +23,6 @@ public class SimpleDialogues : MonoBehaviour
     void Update()
     {
 
-        /*Debug.Log(this.gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text);
-
-        if (!assigned)
-        {
-            for (int i = 1; i < this.gameObject.transform.childCount - 1; i++)
-            {
-                dialogos.Add(this.gameObject.transform.GetChild(i).gameObject.GetComponent<Dialogos>().fullDialogue);
-
-                assigned = true;
-            }
-        }*/
-
         dialogos[0] = "¡Tienes que ayudarnos! \n¡El Fari, Cigala y Paquirrin tienen encerrado a Elvis! \nTu parece que aprecias la buena música \nNuestro pueblo está tomado por Paquirrín \n¡liberanos, por favor!";
 
         dialogos[1] = "Oye chico, creo que tienes potencial para poder ayudarnos \nPonemos nuestras esperanzas en ti. \nEsa espada que llevas parece especial, como imbuida en armonía \nprueba a atacar con ella a distancia, a lo mejor hace algún sonido. \nQuizás con el poder de la buena música podamos liberar a Elvis \ny liberar la zona de la antimúsica. \nDeberías empezar con Paquirrín que está aquí en este pueblo \n[Con click izq atacas]";

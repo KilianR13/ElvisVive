@@ -5437,15 +5437,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogos
   dialogos:
-  - "\xA1Tienes que ayudarnos!"
-  - "\xA1El Fari, Cigala y Paquirrin tienen encerrado a Elvis! "
-  - "Tu parece que aprecias la buena m\xFAsica"
-  - "Nuestro pueblo est\xE1 tomado por Paquirr\xEDn"
-  - " \xA1liberanos, por favor!"
-  dialogosSeleccionados: 0000000001000000020000000300000004000000
+  - "\xA1Tienes que ayudarnos! \xA1El Fari, Cigala y Paquirrin tienen encerrado a
+    Elvis! "
+  - "Tu parece que aprecias la buena m\xFAsica. Nuestro pueblo est\xE1 tomado por
+    Paquirr\xEDn! \xA1Liberanos, por favor!"
+  dialogosSeleccionados: 0000000001000000
   fullDialogue: 
+  characterName: Alcalde
   canvasDialogos: {fileID: 538593495}
   alreadyTransfered: 0
+  cancelDialogue: 0
 --- !u!1001 &394158695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8062,11 +8063,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2078645168}
   - {fileID: 391348749}
   - {fileID: 1094967627}
   - {fileID: 1862460788}
   - {fileID: 1916330614}
+  - {fileID: 1174491659}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -8112,11 +8113,14 @@ MonoBehaviour:
   dialogos: []
   dialogosTemp: []
   dialogosSeleccionados: 
+  characterName: 
   ordenar: 0
   printSpeedMultipler: 1
   delayEntreDialogos: 1
   activar: 0
+  cancelDialogue: 0
   cajaDeTexto: {fileID: 2078645166}
+  nombrePersonajeHablando: {fileID: 2040114869}
 --- !u!1001 &538629484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17262,23 +17266,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogos
   dialogos:
-  - 'Oye chico, creo que tienes potencial para poder ayudarnos '
-  - 'Ponemos nuestras esperanzas en ti. '
-  - "Esa espada que llevas parece especial, como imbuida en armon\xEDa "
-  - "prueba a atacar con ella a distancia, a lo mejor hace alg\xFAn sonido. "
-  - "Quiz\xE1s con el poder de la buena m\xFAsica podamos liberar a Elvis"
-  - "y liberar la zona de la antim\xFAsica. "
+  - Oye chico, creo que tienes potencial para poder ayudarnos. Ponemos nuestras esperanzas
+    en ti.
+  - "Esa espada que llevas parece especial, como imbuida en armon\xEDa. prueba a
+    atacar con ella a distancia, a lo mejor hace alg\xFAn sonido."
+  - "Quiz\xE1s con el poder de la buena m\xFAsica podamos liberar a Elvis y liberar
+    la zona de la antim\xFAsica."
   - "Deber\xEDas empezar con Paquirr\xEDn que est\xE1 aqu\xED en este pueblo"
-  - ' [Con click izq atacas]'
-  dialogosSeleccionados: 0000000001000000020000000300000004000000050000000600000007000000
+  - '[Con click izq atacas]'
+  dialogosSeleccionados: 0000000001000000020000000300000004000000
   fullDialogue: "Oye chico, creo que tienes potencial para poder ayudarnos Ponemos
     nuestras esperanzas en tiEsa espada que llevas parece especial, como imbuida
     en armon\xEDaprueba a atacar con ella a distancia, a lo mejor hace alg\xFAn sonidoQuiz\xE1s
     con el poder de la buena m\xFAsica podamos liberar a Elvisy liberar la zona de
     la antim\xFAsicaDeber\xEDas empezar con Paquirr\xEDn que est\xE1 aqu\xED en este
     pueblo[Con click izq atacas]"
+  characterName: "Rajm\xE1ninov"
   canvasDialogos: {fileID: 538593495}
   alreadyTransfered: 0
+  cancelDialogue: 0
 --- !u!1001 &1096533098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18293,6 +18299,83 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7215789102726134100, guid: 1bcacddb37e18a54ead6483766e73d46, type: 3}
   m_PrefabInstance: {fileID: 1162253122}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1174491658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1174491659}
+  - component: {fileID: 1174491661}
+  - component: {fileID: 1174491660}
+  m_Layer: 5
+  m_Name: DialogueBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1174491659
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174491658}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2078645168}
+  - {fileID: 2040114868}
+  m_Father: {fileID: 538593500}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.05, y: 0.1}
+  m_AnchorMax: {x: 0.95, y: 0.4}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1174491660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174491658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1174491661
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174491658}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1178765348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27504,17 +27587,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogos
   dialogos:
   - "\xA1Necesito tu ayuda!"
-  - "El Cigala est\xE1 en este bosque"
-  - Yo sola no puedo contra el
-  - Pero a lo mejor con tu poder del metal
-  - y mis composiciones dodecafonicas
-  - "Podr\xE1s derrotar a Cigala"
-  - Deberias probar las composiciones
+  - "El Cigala est\xE1 en este bosque, y yo sola no puedo contra \xE9."
+  - "\xA1Pero a lo mejor con tu poder del metal y mis composiciones dodecafonicas
+    podr\xE1s derrotar a Cigala!"
+  - Deberias probar las composiciones.
   - '[Con click derecho usas composiciones]'
-  dialogosSeleccionados: 0000000001000000020000000300000004000000050000000600000007000000
+  dialogosSeleccionados: 0000000001000000020000000300000004000000
   fullDialogue: 
+  characterName: Lulu
   canvasDialogos: {fileID: 538593495}
   alreadyTransfered: 0
+  cancelDialogue: 0
 --- !u!1001 &1869793235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28607,15 +28690,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogos
   dialogos:
-  - Noble guerrero, necesitamos tu ayuda
-  - "El Fari tiene atrapado a Elvis, necesitar\xE1s coraje para derrotarlo"
+  - Noble guerrero, necesitamos tu ayuda.
+  - "El Fari tiene atrapado a Elvis, necesitar\xE1s coraje para derrotarlo..."
   - "Tu fuerza m\xFAsical y mis leitmotifs posiblemente le puedan hacer frente al
-    Fari "
+    Fari."
   - '[Con la E disparas leitmotifs]'
   dialogosSeleccionados: 00000000010000000200000003000000
   fullDialogue: 
+  characterName: Parsifal
   canvasDialogos: {fileID: 538593495}
   alreadyTransfered: 0
+  cancelDialogue: 0
 --- !u!1001 &1917739280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30546,6 +30631,143 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7215789102726134100, guid: 1bcacddb37e18a54ead6483766e73d46, type: 3}
   m_PrefabInstance: {fileID: 2039047510}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2040114867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2040114868}
+  - component: {fileID: 2040114870}
+  - component: {fileID: 2040114869}
+  m_Layer: 5
+  m_Name: CharacterTalking
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2040114868
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040114867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1174491659}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.01, y: 0.75}
+  m_AnchorMax: {x: 0.99, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2040114869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040114867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: HABLANDO
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: b407ecb0d5021b5468cecc9ed9a693ee, type: 2}
+  m_sharedMaterial: {fileID: 6964215009095307852, guid: b407ecb0d5021b5468cecc9ed9a693ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 63.55
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 10, y: 10, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &2040114870
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040114867}
+  m_CullTransparentMesh: 1
 --- !u!1001 &2049655821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30970,10 +31192,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Texto de prueba
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8a5ddaa696e39b84a99b754568fb2e15, type: 2}
+  m_sharedMaterial: {fileID: 5947171449449247250, guid: 8a5ddaa696e39b84a99b754568fb2e15, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -30997,14 +31219,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -31036,7 +31258,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 10, y: 0, z: 10, w: 10}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -31057,17 +31279,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078645165}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 538593500}
+  m_Father: {fileID: 1174491659}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 310.77808}
-  m_SizeDelta: {x: 1920, y: 118.4439}
+  m_AnchorMin: {x: 0.01, y: 0}
+  m_AnchorMax: {x: 0.99, y: 0.75}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2091529906
 PrefabInstance:
@@ -36176,6 +36398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EventsTriggeredByPlayer
   soundHandler: {fileID: 0}
   canvasDialogos: {fileID: 538593495}
+  dialogueBox: {fileID: 1174491658}
   TriggerAlcalde: 0
   TriggerSergey: 0
   TriggerLulu: 0
