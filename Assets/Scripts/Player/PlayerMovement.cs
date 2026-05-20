@@ -198,4 +198,9 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = originalMoveSpeed;
         }
     }
+
+    private void FuncPlaceholder()
+    {
+        
+    }
 }
