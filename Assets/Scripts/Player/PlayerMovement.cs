@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public LensDistortion lensDistortion;
 
     [Header("Movimiento")]
-    public float moveSpeed = 5f;
+    public float moveSpeed = 10f;
     private float originalMoveSpeed;
 
     public float MovementPenalty;
@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Controla varias cosas sobre la gravedad del jugador
         HandleGravityAndJump();
-        // Sprint();
+        Sprint();
         enSuelo = controller.isGrounded;
         Vector3 speed = controller.velocity;
         Vector3 localMovement = controller.transform.InverseTransformDirection(speed);
@@ -205,4 +205,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void PlaceHolderFunc()
+    {    
+    
+    }
+
 }
+
