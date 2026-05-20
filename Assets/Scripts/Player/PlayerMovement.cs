@@ -58,6 +58,12 @@ public class PlayerMovement : MonoBehaviour
         originalMoveSpeed = moveSpeed;
     }
 
+    
+    private void FuncPlaceholder()
+    {
+        
+    }
+
     void Update()
     {
         // Usa el InputSystem antiguo para registrar los saltos
@@ -199,8 +205,4 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void FuncPlaceholder()
-    {
-        
-    }
 }
