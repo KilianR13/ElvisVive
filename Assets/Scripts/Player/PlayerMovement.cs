@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Controla varias cosas sobre la gravedad del jugador
         HandleGravityAndJump();
-        // Sprint();
+        Sprint();
         enSuelo = controller.isGrounded;
         Vector3 speed = controller.velocity;
         Vector3 localMovement = controller.transform.InverseTransformDirection(speed);
