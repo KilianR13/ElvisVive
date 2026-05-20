@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public LensDistortion lensDistortion;
 
     [Header("Movimiento")]
-    public float moveSpeed = 5f;
+    public float moveSpeed = 10f;
     private float originalMoveSpeed;
 
     public float MovementPenalty;
